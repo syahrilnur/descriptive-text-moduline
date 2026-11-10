@@ -1,0 +1,3278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desriptive Text Moduline - MPI Bahasa Inggris Kelas VII MTs</title>
+  <style>
+    :root {
+      --tosca-dark: #0f524d;
+      --tosca-main: #0d9488;
+      --tosca-mid: #14b8a6;
+      --tosca-light: #ccfbf1;
+      --tosca-soft: #f0fdfa;
+      --gold-dark: #b45309;
+      --gold-main: #f59e0b;
+      --gold-light: #fef3c7;
+      --rose-main: #e11d48;
+      --rose-light: #ffe4e6;
+      --slate-dark: #0f172a;
+      --slate-body: #334155;
+      --slate-muted: #64748b;
+      --bg-page: #f1f5f9;
+      --white: #ffffff;
+      --success: #16a34a;
+      --success-bg: #dcfce7;
+      --danger: #dc2626;
+      --danger-bg: #fee2e2;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-sm: 0 3px 10px rgba(15, 82, 77, 0.08);
+      --shadow-md: 0 10px 28px rgba(15, 82, 77, 0.14);
+      --transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--slate-body);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    /* HEADER UTAMA & PROFIL PENGEMBANG */
+    .app-header {
+      background: linear-gradient(135deg, var(--tosca-dark) 0%, var(--tosca-main) 60%, #0f766e 100%);
+      color: var(--white);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-header::before {
+      content: "";
+      position: absolute;
+      right: -50px;
+      top: -50px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-container {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-badge {
+      width: 58px;
+      height: 58px;
+      background: linear-gradient(135deg, var(--gold-main), #fbbf24);
+      color: var(--slate-dark);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.92rem;
+      line-height: 1.1;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+      flex-shrink: 0;
+    }
+
+    .brand-text h1 {
+      font-size: 1.32rem;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      line-height: 1.2;
+    }
+
+    .brand-text p {
+      font-size: 0.82rem;
+      color: var(--tosca-light);
+      margin-top: 3px;
+    }
+
+    .dev-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1.5px solid rgba(254, 243, 199, 0.45);
+      padding: 6px 14px 6px 8px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: var(--transition);
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .dev-pill:hover {
+      background: rgba(255, 255, 255, 0.24);
+      transform: translateY(-2px);
+    }
+
+    .dev-pill img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold-main);
+      background: var(--white);
+    }
+
+    .dev-pill-info {
+      text-align: left;
+      line-height: 1.2;
+    }
+
+    .dev-pill-info small {
+      display: block;
+      font-size: 0.68rem;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+    }
+
+    .dev-pill-info strong {
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    /* TEAM SCOREBOARD BAR */
+    .team-bar {
+      background: var(--white);
+      border-bottom: 2px solid var(--tosca-light);
+      padding: 10px 20px;
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .team-container {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .team-label {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--tosca-dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .team-chip {
+      background: var(--tosca-soft);
+      border: 1.5px solid var(--tosca-main);
+      border-radius: 10px;
+      padding: 4px 10px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--tosca-dark);
+    }
+
+    .team-chip span.score {
+      background: var(--gold-main);
+      color: var(--slate-dark);
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-weight: 800;
+    }
+
+    .team-btn-add {
+      background: var(--tosca-main);
+      color: var(--white);
+      border: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 800;
+      transition: var(--transition);
+    }
+
+    .team-btn-add:hover {
+      background: var(--tosca-dark);
+      transform: scale(1.1);
+    }
+
+    /* MAIN WRAPPER & NAVIGATION TABS */
+    .main-wrapper {
+      max-width: 1180px;
+      margin: 20px auto;
+      padding: 0 16px;
+    }
+
+    .nav-tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .tab-btn {
+      background: var(--white);
+      border: 2px solid transparent;
+      border-radius: var(--radius-md);
+      padding: 13px 15px;
+      text-align: left;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 62px;
+    }
+
+    .tab-btn:hover {
+      border-color: var(--tosca-main);
+      transform: translateY(-2px);
+    }
+
+    .tab-btn.active {
+      background: var(--tosca-dark);
+      color: var(--white);
+      border-color: var(--gold-main);
+      box-shadow: var(--shadow-md);
+    }
+
+    .tab-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--tosca-light);
+      color: var(--tosca-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .tab-btn.active .tab-icon {
+      background: var(--gold-main);
+      color: var(--slate-dark);
+    }
+
+    .tab-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      display: block;
+    }
+
+    .tab-sub {
+      font-size: 0.74rem;
+      opacity: 0.85;
+      display: block;
+    }
+
+    /* MODULE PANELS */
+    .module-panel {
+      display: none;
+      animation: fadeSlide 0.32s ease forwards;
+    }
+
+    .module-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* CARDS & REUSABLE LAYOUTS */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .card-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--tosca-soft);
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--tosca-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-kbc {
+      background: var(--gold-light);
+      color: var(--gold-dark);
+      border: 1px solid var(--gold-main);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .kbc-banner {
+      background: linear-gradient(90deg, var(--tosca-soft) 0%, var(--gold-light) 100%);
+      border-left: 5px solid var(--gold-main);
+      padding: 14px 18px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      font-size: 0.9rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .concept-box {
+      background: var(--tosca-soft);
+      border: 1.5px solid var(--tosca-light);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+
+    .concept-box h4 {
+      color: var(--tosca-dark);
+      margin-bottom: 8px;
+      font-size: 0.98rem;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--tosca-main);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--tosca-dark);
+    }
+
+    .btn-gold {
+      background: var(--gold-main);
+      color: var(--slate-dark);
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-dark);
+      color: var(--white);
+    }
+
+    .btn-outline {
+      background: var(--white);
+      color: var(--tosca-dark);
+      border: 2px solid var(--tosca-main);
+    }
+
+    .btn-outline:hover {
+      background: var(--tosca-soft);
+    }
+
+    /* HIGHLIGHT TAGS */
+    .live-text-output {
+      background: var(--tosca-soft);
+      border-left: 5px solid var(--tosca-main);
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    .hl-adj {
+      background: var(--gold-light);
+      color: var(--gold-dark);
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-weight: 700;
+      border-bottom: 2px solid var(--gold-main);
+    }
+
+    .hl-verb {
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-weight: 700;
+    }
+
+    .hl-prep {
+      background: #fce7f3;
+      color: #9d174d;
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-weight: 700;
+    }
+
+    /* SUB-PILLS & VOCABULARY EXPLORER */
+    .sub-pill-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .sub-pill {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 2px solid var(--tosca-main);
+      background: var(--white);
+      color: var(--tosca-dark);
+      font-weight: 700;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .sub-pill.active,
+    .sub-pill:hover {
+      background: var(--tosca-main);
+      color: var(--white);
+    }
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .vocab-card {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 10px 12px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .vocab-card:hover {
+      border-color: var(--tosca-main);
+      background: var(--tosca-soft);
+      transform: translateY(-2px);
+    }
+
+    .vocab-en {
+      font-weight: 800;
+      color: var(--tosca-dark);
+      font-size: 0.92rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .vocab-id {
+      font-size: 0.79rem;
+      color: var(--slate-muted);
+      margin-top: 3px;
+    }
+
+    .vocab-cat-tag {
+      font-size: 0.67rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+      margin-top: 6px;
+      text-transform: uppercase;
+    }
+
+    /* BOALEMO STYLE SALON GAME UI */
+    .salon-layout {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .salon-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .salon-mirror-frame {
+      background: linear-gradient(180deg, #134e4a 0%, #0f766e 100%);
+      border-radius: 22px;
+      padding: 16px;
+      border: 4px solid var(--gold-main);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      color: var(--white);
+    }
+
+    .salon-lights {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 10px;
+    }
+
+    .bulb {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #fef08a;
+      box-shadow: 0 0 10px #fde047;
+    }
+
+    .mirror-canvas-wrap {
+      background: radial-gradient(circle at 50% 35%, #ffffff 0%, #e0f2fe 70%, #bae6fd 100%);
+      border-radius: 16px;
+      border: 3px solid #fef3c7;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .client-order-box {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 2px solid var(--gold-main);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .client-badge {
+      display: inline-block;
+      background: var(--tosca-dark);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .salon-controls-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+    }
+
+    .trait-group {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 11px 13px;
+    }
+
+    .trait-group h5 {
+      font-size: 0.84rem;
+      color: var(--tosca-dark);
+      margin-bottom: 8px;
+    }
+
+    .trait-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .trait-btn {
+      flex: 1;
+      min-width: 78px;
+      padding: 7px 9px;
+      font-size: 0.77rem;
+      font-weight: 700;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--slate-body);
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .trait-btn:hover {
+      border-color: var(--tosca-main);
+    }
+
+    .trait-btn.active {
+      background: var(--tosca-main);
+      color: var(--white);
+      border-color: var(--tosca-dark);
+    }
+
+    .salon-result-box {
+      margin-top: 14px;
+      padding: 15px;
+      border-radius: 12px;
+      display: none;
+    }
+
+    .salon-result-box.match {
+      display: block;
+      background: var(--success-bg);
+      border: 2px solid var(--success);
+      color: #14532d;
+    }
+
+    .salon-result-box.mismatch {
+      display: block;
+      background: #fff1f2;
+      border: 2px solid var(--rose-main);
+      color: #881337;
+    }
+
+    /* SENTENCE SORTER & WRITING */
+    .sentence-item {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .feedback-inline {
+      margin-top: 10px;
+      padding: 11px 14px;
+      border-radius: 9px;
+      font-size: 0.87rem;
+      display: none;
+    }
+
+    .feedback-inline.correct {
+      display: block;
+      background: var(--success-bg);
+      color: #14532d;
+      border: 1.5px solid var(--success);
+    }
+
+    .feedback-inline.wrong {
+      display: block;
+      background: var(--danger-bg);
+      color: #7f1d1d;
+      border: 1.5px solid var(--danger);
+    }
+
+    /* =====================================================
+       MODUL 4: 10 SOAL HOTS MULTI-FORMAT + VISUAL STIMULUS
+       ===================================================== */
+    .quiz-question-card {
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .q-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1.5px dashed #cbd5e1;
+    }
+
+    .q-num-badge {
+      background: var(--tosca-dark);
+      color: var(--white);
+      font-weight: 800;
+      font-size: 0.86rem;
+      padding: 5px 12px;
+      border-radius: 8px;
+    }
+
+    .q-type-badge {
+      background: var(--gold-light);
+      color: var(--gold-dark);
+      border: 1px solid var(--gold-main);
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .visual-stimulus-box {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 16px;
+      background: var(--white);
+      border: 1.5px solid var(--tosca-light);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 14px;
+      align-items: center;
+    }
+
+    @media (max-width: 720px) {
+      .visual-stimulus-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .visual-svg-frame {
+      background: #f0fdfa;
+      border: 1.5px solid #99f6e4;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 145px;
+    }
+
+    .options-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .opt-btn {
+      text-align: left;
+      background: var(--white);
+      border: 2px solid #cbd5e1;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      min-height: 48px;
+    }
+
+    .opt-btn:hover {
+      border-color: var(--tosca-main);
+      background: var(--tosca-soft);
+    }
+
+    .opt-btn.selected-correct {
+      background: var(--success-bg);
+      border-color: var(--success);
+      color: #14532d;
+    }
+
+    .opt-btn.selected-wrong {
+      background: var(--danger-bg);
+      border-color: var(--danger);
+      color: #7f1d1d;
+    }
+
+    /* MATCHING DROPDOWN TABLE */
+    .match-row {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 10px;
+      align-items: center;
+      background: var(--white);
+      padding: 10px 12px;
+      border-radius: 9px;
+      border: 1px solid #cbd5e1;
+      margin-bottom: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .match-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .match-select {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 2px solid var(--tosca-main);
+      font-weight: 700;
+      color: var(--tosca-dark);
+      background: var(--tosca-soft);
+    }
+
+    /* WORD / SENTENCE ARRANGE CHIPS */
+    .arrange-target-box {
+      min-height: 54px;
+      background: var(--white);
+      border: 2px dashed var(--tosca-main);
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .chip-bank {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .word-chip {
+      background: var(--white);
+      border: 2px solid var(--tosca-dark);
+      color: var(--tosca-dark);
+      padding: 7px 13px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .word-chip:hover {
+      background: var(--tosca-main);
+      color: var(--white);
+    }
+
+    .word-chip.placed {
+      background: var(--gold-light);
+      border-color: var(--gold-dark);
+      color: var(--slate-dark);
+    }
+
+    /* DRAWING CANVAS STUDIO (SOAL 10) */
+    .drawing-studio-wrap {
+      background: var(--white);
+      border: 2px solid var(--tosca-main);
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 10px;
+    }
+
+    #hotsDrawCanvas {
+      border: 2px solid #94a3b8;
+      border-radius: 10px;
+      background: #ffffff;
+      cursor: crosshair;
+      touch-action: none;
+      width: 100%;
+      max-width: 520px;
+      height: 200px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .color-dot-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid #334155;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .color-dot-btn.active {
+      transform: scale(1.22);
+      border: 3px solid #000;
+    }
+
+    /* ITEM ANALYSIS TABLE */
+    .analysis-table-wrap {
+      overflow-x: auto;
+      margin-top: 14px;
+    }
+
+    .analysis-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      background: var(--white);
+    }
+
+    .analysis-table th,
+    .analysis-table td {
+      border: 1px solid #cbd5e1;
+      padding: 7px 9px;
+      text-align: center;
+    }
+
+    .analysis-table th {
+      background: var(--tosca-dark);
+      color: var(--white);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 10px 13px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    /* DEVELOPER PROFILE FOOTER CARD & MODAL */
+    .dev-footer-card {
+      background: linear-gradient(135deg, var(--tosca-dark) 0%, #115e59 100%);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      box-shadow: var(--shadow-md);
+      border: 2px solid var(--gold-main);
+    }
+
+    .dev-profile-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .dev-avatar-large {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--gold-main);
+      background: var(--white);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 100;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--white);
+      max-width: 520px;
+      width: 100%;
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+      border: 3px solid var(--tosca-main);
+      box-shadow: var(--shadow-md);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER UTAMA: DESRIPTIVE TEXT MODULINE -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-info">
+        <div class="brand-badge">
+          <span>MTs</span>
+          <small style="font-size:0.65rem;">VII / D</small>
+        </div>
+        <div class="brand-text">
+          <h1>DESRIPTIVE TEXT MODULINE</h1>
+          <p>Interactive English Module & Boalemo Style Salon • Kanwil Kemenag Provinsi Gorontalo</p>
+        </div>
+      </div>
+
+      <!-- PILL IDENTITAS PENGEMBANG -->
+      <button class="dev-pill" onclick="toggleDevModal(true)" title="Klik untuk melihat Profil Pengembang">
+        <img src="https://www.image2url.com/r2/default/images/1794317793074-f0faebb3-78dc-4760-a446-277bf4087250.png" alt="Syahril Nur, S.Pd., M.Pd., Gr." onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23f59e0b%22/><text x=%2250%25%22 y=%2255%25%22 font-size=%2228%22 font-family=%22sans-serif%22 font-weight=%22bold%22 fill=%22%230f172a%22 text-anchor=%22middle%22>SN</text></svg>'" />
+        <div class="dev-pill-info">
+          <small>Pengembang MPI</small>
+          <strong>Syahril Nur, S.Pd., M.Pd., Gr.</strong>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- PAPAN SKOR KOMPETISI KELOMPOK & BINTANG SALON -->
+  <section class="team-bar" aria-label="Papan Skor Kelompok">
+    <div class="team-container">
+      <div class="team-label">
+        <span>🏆 Kompetisi Kelompok & Bintang Salon (<span id="salonStarCount">0</span> ⭐):</span>
+      </div>
+      <div class="team-grid">
+        <div class="team-chip">
+          <span>Bolihutuo</span>
+          <span class="score" id="score-0">0</span>
+          <button class="team-btn-add" onclick="addTeamScore(0)" title="Tambah +10 Poin">+</button>
+        </div>
+        <div class="team-chip">
+          <span>Pulo Cinta</span>
+          <span class="score" id="score-1">0</span>
+          <button class="team-btn-add" onclick="addTeamScore(1)" title="Tambah +10 Poin">+</button>
+        </div>
+        <div class="team-chip">
+          <span>Tilamuta</span>
+          <span class="score" id="score-2">0</span>
+          <button class="team-btn-add" onclick="addTeamScore(2)" title="Tambah +10 Poin">+</button>
+        </div>
+        <div class="team-chip">
+          <span>Mananggu</span>
+          <span class="score" id="score-3">0</span>
+          <button class="team-btn-add" onclick="addTeamScore(3)" title="Tambah +10 Poin">+</button>
+        </div>
+        <button class="btn-outline" style="padding:4px 10px; border-radius:8px; font-size:0.74rem; cursor:pointer;" onclick="resetTeamScores()">Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTEN UTAMA -->
+  <main class="main-wrapper">
+
+    <!-- NAVIGASI 4 MODUL UTAMA -->
+    <nav class="nav-tabs" role="tablist">
+      <button class="tab-btn active" onclick="switchTab('mod-1', this)">
+        <span class="tab-icon">📚</span>
+        <div>
+          <span class="tab-title">1. Materi 4 Objek & Vocab</span>
+          <span class="tab-sub">Manusia, Hewan, Benda, Tempat</span>
+        </div>
+      </button>
+      <button class="tab-btn" onclick="switchTab('mod-2', this)">
+        <span class="tab-icon">💇</span>
+        <div>
+          <span class="tab-title">2. Game: Boalemo Salon</span>
+          <span class="tab-sub">Sesuaikan Wajah Pelanggan</span>
+        </div>
+      </button>
+      <button class="tab-btn" onclick="switchTab('mod-3', this)">
+        <span class="tab-icon">🌅</span>
+        <div>
+          <span class="tab-title">3. Lab Alam & Menulis</span>
+          <span class="tab-sub">Simulasi Cuaca & Guided Writing</span>
+        </div>
+      </button>
+      <button class="tab-btn" onclick="switchTab('mod-4', this)">
+        <span class="tab-icon">🎯</span>
+        <div>
+          <span class="tab-title">4. Evaluasi 10 HOTS & Cloud</span>
+          <span class="tab-sub">Multi-Format + Analisis Soal</span>
+        </div>
+      </button>
+    </nav>
+
+    <!-- =================================================================
+         MODUL 1: MATERI LENGKAP (MANUSIA, HEWAN, BENDA, TEMPAT) + VOCABULARIES
+         ================================================================= -->
+    <section id="mod-1" class="module-panel active">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">🌿 Konsep Inti Desriptive Text Moduline (KBC & Deep Learning)</div>
+          <span class="badge-kbc">Listening • Speaking • Reading • Writing</span>
+        </div>
+
+        <div class="kbc-banner">
+          <strong>💡 Integrasi Kurikulum Berbasis Cinta (KBC):</strong>
+          Saat mendeskripsikan <strong>Manusia (People)</strong>, gunakan kata-kata yang santun dan menghargai ciptaan Allah SWT (<em>Hubbunnaas</em>). Saat mendeskripsikan <strong>Hewan, Benda, dan Tempat</strong> di pesisir dan dataran agraris Kabupaten Boalemo, tumbuhkan rasa syukur dan kepedulian menjaga kelestarian alam (<em>Hubbul Alam</em>).
+        </div>
+
+        <div class="grid-3">
+          <div class="concept-box">
+            <h4>1. Social Function (Tujuan Teks)</h4>
+            <p style="font-size:0.86rem;">
+              <strong>To describe a particular person, animal, thing, or place specifically.</strong><br/>
+              Menggambarkan ciri-ciri khusus dari satu manusia, hewan, benda, atau tempat tertentu secara spesifik sehingga pembaca seolah-olah melihatnya langsung.
+            </p>
+          </div>
+          <div class="concept-box">
+            <h4>2. Generic Structure (Struktur Teks)</h4>
+            <p style="font-size:0.86rem;">
+              • <strong>Identification (Identifikasi):</strong> Paragraf pembuka yang memperkenalkan nama, kategori, atau lokasi objek.<br/>
+              • <strong>Description (Deskripsi):</strong> Paragraf rincian yang menjelaskan ciri fisik (<em>physical appearance</em>), bagian-bagian (<em>parts</em>), sifat (<em>qualities</em>), atau kebiasaan (<em>habits</em>).
+            </p>
+          </div>
+          <div class="concept-box">
+            <h4>3. Unsur Kebahasaan (Language Features)</h4>
+            <p style="font-size:0.86rem;">
+              • <strong>Simple Present Tense:</strong> <em>She <u>wears</u> a hijab</em>, <em>It <u>lives</u> in Tomini Bay</em>.<br/>
+              • <strong>Linking Verbs (is/am/are & has/have):</strong><br/>
+              Gunakan <code>is/are + Adjective</code> (<em>He <u>is</u> tall</em>) dan <code>has/have + Noun Phrase</code> (<em>He <u>has</u> curly hair</em>).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- EKSPLORASI 4 OBJEK DESCRIPTIVE TEXT BESERTA CONTOH LENGKAP -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">🔍 Panduan & Contoh Lengkap 4 Objek Descriptive Text (Klik & Dengarkan)</div>
+          <span class="badge-kbc">People • Animals • Things • Places</span>
+        </div>
+
+        <div class="sub-pill-bar">
+          <button class="sub-pill active" id="pill-cat-people" onclick="showCategoryMaterial('people')">👤 1. Describing People (Manusia)</button>
+          <button class="sub-pill" id="pill-cat-animals" onclick="showCategoryMaterial('animals')">🦈 2. Describing Animals (Hewan)</button>
+          <button class="sub-pill" id="pill-cat-things" onclick="showCategoryMaterial('things')">👜 3. Describing Things (Benda)</button>
+          <button class="sub-pill" id="pill-cat-places" onclick="showCategoryMaterial('places')">🏖️ 4. Describing Places (Tempat)</button>
+        </div>
+
+        <div class="grid-2" id="categoryDetailWrap"></div>
+      </div>
+
+      <!-- IMPORTANT VOCABULARIES EXPLORER -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">📖 Important Vocabularies Bank (40 Kosakata Kunci Descriptive Text)</div>
+          <span class="badge-kbc">Klik Kartu untuk Mendengar Suara (Pronunciation)</span>
+        </div>
+
+        <div class="sub-pill-bar">
+          <button class="sub-pill active" id="vpill-all" onclick="filterVocab('all')">🌟 Semua Kosakata (40 Kata)</button>
+          <button class="sub-pill" id="vpill-face" onclick="filterVocab('face')">💇 Wajah & Rambut (Salon)</button>
+          <button class="sub-pill" id="vpill-person" onclick="filterVocab('person')">🧍 Tubuh & Kepribadian</button>
+          <button class="sub-pill" id="vpill-animal" onclick="filterVocab('animal')">🐾 Ciri Hewan</button>
+          <button class="sub-pill" id="vpill-thing" onclick="filterVocab('thing')">📦 Benda (Ukuran/Bahan)</button>
+          <button class="sub-pill" id="vpill-place" onclick="filterVocab('place')">🏝️ Tempat & Suasana</button>
+        </div>
+
+        <div class="vocab-grid" id="vocabGridContainer"></div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         MODUL 2: GAME INTERAKTIF "BOALEMO STYLE SALON"
+         ================================================================= -->
+    <section id="mod-2" class="module-panel">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">💇‍♀️ GAME INTERAKTIF: Boalemo Style Salon (Face & Appearance Matcher)</div>
+          <span class="badge-kbc">Real-Time Visual & Diagnostic Feedback</span>
+        </div>
+
+        <p style="font-size:0.92rem; margin-bottom:14px;">
+          Selamat datang di <strong>Boalemo Style Salon</strong>! Baca atau dengarkan deskripsi penampilan yang diminta pelanggan, lalu sesuaikan <strong>7 fitur wajah di cermin</strong> hingga 100% cocok dengan instruksi bahasa Inggrisnya!
+        </p>
+
+        <div class="sub-pill-bar">
+          <button class="sub-pill active" id="cbtn-0" onclick="loadSalonClient(0)">Pelanggan 1: Raka (Siswa MTs Tilamuta)</button>
+          <button class="sub-pill" id="cbtn-1" onclick="loadSalonClient(1)">Pelanggan 2: Aisyah (Duta Literasi Bolihutuo)</button>
+          <button class="sub-pill" id="cbtn-2" onclick="loadSalonClient(2)">Pelanggan 3: Ustaz Farhan (Guru Muda)</button>
+          <button class="sub-pill" id="cbtn-3" onclick="loadSalonClient(3)">Pelanggan 4: Nadia (Vlogger Pulo Cinta)</button>
+          <button class="sub-pill" id="cbtn-4" onclick="loadSalonClient(4)">🎨 Mode Kreasi Bebas (Free Salon Sandbox)</button>
+        </div>
+
+        <div class="client-order-box">
+          <span class="client-badge" id="clientTitleBadge">PELANGGAN #1 • MISI DESKRIPSI WAJAH</span>
+          <p id="clientOrderText" style="font-size:0.98rem; color:var(--slate-dark); line-height:1.65; margin-bottom:10px;"></p>
+          <div style="display:flex; flex-wrap:wrap; gap:10px;">
+            <button class="btn btn-primary" onclick="speakClientOrder()">🔊 Dengarkan Instruksi Pelanggan</button>
+            <button class="btn btn-gold" onclick="checkSalonMatch()">✨ Periksa Kesesuaian Wajah (Check Order)</button>
+            <button class="btn btn-outline" onclick="randomizeSalonFace()">🎲 Acak Wajah</button>
+          </div>
+          <div class="salon-result-box" id="salonFeedbackBox"></div>
+        </div>
+
+        <div class="salon-layout">
+          <div>
+            <div class="salon-mirror-frame">
+              <div class="salon-lights">
+                <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+              </div>
+              <div class="mirror-canvas-wrap">
+                <svg id="salonAvatarSvg" viewBox="0 0 320 330" width="100%" height="285" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="160" cy="165" r="135" fill="#bae6fd" opacity="0.45" />
+                  <path d="M65 330 Q160 270 255 330 Z" fill="#0d9488" />
+                  <path d="M125 292 L160 325 L195 292" fill="#fef3c7" />
+                  <rect id="svgNeck" x="135" y="235" width="50" height="50" rx="14" fill="#eab676" />
+                  <g id="svgBackHair"></g>
+                  <circle id="svgEarL" cx="76" cy="170" r="16" fill="#eab676" />
+                  <circle id="svgEarR" cx="244" cy="170" r="16" fill="#eab676" />
+                  <g id="svgFaceBase"></g>
+                  <g id="svgEyesLayer"></g>
+                  <g id="svgNoseLayer"></g>
+                  <g id="svgMouthLayer"></g>
+                  <g id="svgGlassesLayer"></g>
+                  <g id="svgTopHairLayer"></g>
+                </svg>
+              </div>
+              <div style="font-size:0.82rem; font-weight:700; color:var(--gold-light);">
+                🪞 Cermin Interaktif Boalemo Style Salon
+              </div>
+            </div>
+
+            <div class="live-text-output" style="margin-top:14px;">
+              <div style="font-weight:800; color:var(--tosca-dark); margin-bottom:4px;">
+                📝 Live Physical Description (Deskripsi Wajah Saat Ini):
+              </div>
+              <p id="liveSalonDescriptionText" style="font-size:0.9rem;"></p>
+              <button class="btn btn-outline" style="margin-top:8px; min-height:36px; padding:6px 12px; font-size:0.8rem;" onclick="speakLiveSalonDescription()">
+                🔊 Bacakan Deskripsi Wajah Ini
+              </button>
+            </div>
+          </div>
+
+          <div class="salon-controls-grid">
+            <div class="trait-group">
+              <h5>1. Face Shape (Bentuk Wajah)</h5>
+              <div class="trait-options">
+                <button class="trait-btn" data-trait="faceShape" data-val="oval" onclick="setTrait('faceShape','oval')">Oval Face<br/><small>(Lonjong)</small></button>
+                <button class="trait-btn" data-trait="faceShape" data-val="round" onclick="setTrait('faceShape','round')">Round Face<br/><small>(Bulat)</small></button>
+                <button class="trait-btn" data-trait="faceShape" data-val="square" onclick="setTrait('faceShape','square')">Square Face<br/><small>(Persegi)</small></button>
+              </div>
+            </div>
+
+            <div class="trait-group">
+              <h5>2. Skin Tone (Warna Kulit)</h5>
+              <div class="trait-options">
+                <button class="trait-btn" data-trait="skinTone" data-val="fair" onclick="setTrait('skinTone','fair')">Fair Skin<br/><small>(Cerah)</small></button>
+                <button class="trait-btn" data-trait="skinTone" data-val="tan" onclick="setTrait('skinTone','tan')">Tan Skin<br/><small>(Sawo Matang)</small></button>
+                <button class="trait-btn" data-trait="skinTone" data-val="brown" onclick="setTrait('skinTone','brown')">Brown Skin<br/><small>(Cokelat)</small></button>
+              </div>
+            </div>
+
+            <div class="trait-group" style="grid-column: 1 / -1;">
+              <h5>3. Hair, Hijab, or Kopiah Style (Rambut / Penutup Kepala)</h5>
+              <div class="trait-options">
+                <button class="trait-btn" data-trait="hairStyle" data-val="short_spiky" onclick="setTrait('hairStyle','short_spiky')">Short Spiky Hair<br/><small>(Pendek Rapi)</small></button>
+                <button class="trait-btn" data-trait="hairStyle" data-val="curly_black" onclick="setTrait('hairStyle','curly_black')">Curly Black Hair<br/><small>(Keriting Hitam)</small></button>
+                <button class="trait-btn" data-trait="hairStyle" data-val="wavy_long" onclick="setTrait('hairStyle','wavy_long')">Long Wavy Hair<br/><small>(Panjang Berombak)</small></button>
+                <button class="trait-btn" data-trait="hairStyle" data-val="hijab_tosca" onclick="setTrait('hairStyle','hijab_tosca')">Neat Tosca Hijab<br/><small>(Jilbab Toska)</small></button>
+                <button class="trait-btn" data-trait="hairStyle" data-val="hijab_gold" onclick="setTrait('hairStyle','hijab_gold')">Golden Hijab<br/><small>(Jilbab Emas)</small></button>
+                <button class="trait-btn" data-trait="hairStyle" data-val="kopiah_black" onclick="setTrait('hairStyle','kopiah_black')">Black Kopiah<br/><small>(Peci Hitam)</small></button>
+              </div>
+            </div>
+
+            <div class="trait-group">
+              <h5>4. Eye Shape (Bentuk Mata)</h5>
+              <div class="trait-options">
+                <button class="trait-btn" data-trait="eyeStyle" data-val="big_round" onclick="setTrait('eyeStyle','big_round')">Big Round Eyes<br/><small>(Bulat Besar)</small></button>
+                <button class="trait-btn" data-trait="eyeStyle" data-val="almond_brown" onclick="setTrait('eyeStyle','almond_brown')">Calm Almond Eyes<br/><small>(Teduh/Almond)</small></button>
+                <button class="trait-btn" data-trait="eyeStyle" data-val="cheerful_wink" onclick="setTrait('eyeStyle','cheerful_wink')">Cheerful Eyes<br/><small>(Mata Ceria)</small></button>
+              </div>
+            </div>
+
+            <div class="trait-group">
+              <h5>5. Nose & Facial Feature (Hidung & Ciri Khas)</h5>
+              <div class="trait-options">
+                <button class="trait-btn" data-trait="faceFeature" data-val="pointed_nose" onclick="setTrait('faceFeature','pointed_nose')">Pointed Nose<br/><small>(Hidung Mancung)</small></button>
+                <button class="trait-btn" data-trait="faceFeature" data-val="rosy_cheeks" onclick="setTrait('faceFeature','rosy_cheeks')">Rosy Cheeks<br/><small>(Pipi Merona)</small></button>
+                <button class="trait-btn" data-trait="faceFeature" data-val="freckles" onclick="setTrait('faceFeature','freckles')">Cute Freckles<br/><small>(Bintik Pipi)</small></button>
+                <button class="trait-btn" data-trait="faceFeature" data-val="thin_mustache" onclick="setTrait('faceFeature','thin_mustache')">Thin Mustache<br/><small>(Kumis Tipis)</small></button>
+              </div>
+            </div>
+
+            <div class="trait-group">
+              <h5>6. Smile & Expression (Senyuman)</h5>
+              <div class="trait-options">
+                <button class="trait-btn" data-trait="mouthStyle" data-val="bright_smile" onclick="setTrait('mouthStyle','bright_smile')">Wide Bright Smile<br/><small>(Senyum Lebar)</small></button>
+                <button class="trait-btn" data-trait="mouthStyle" data-val="gentle_smile" onclick="setTrait('mouthStyle','gentle_smile')">Warm Gentle Smile<br/><small>(Senyum Ramah)</small></button>
+                <button class="trait-btn" data-trait="mouthStyle" data-val="small_polite" onclick="setTrait('mouthStyle','small_polite')">Polite Small Smile<br/><small>(Senyum Sopan)</small></button>
+              </div>
+            </div>
+
+            <div class="trait-group">
+              <h5>7. Glasses / Accessories (Kacamata)</h5>
+              <div class="trait-options">
+                <button class="trait-btn" data-trait="accessory" data-val="none" onclick="setTrait('accessory','none')">No Glasses<br/><small>(Tanpa Kacamata)</small></button>
+                <button class="trait-btn" data-trait="accessory" data-val="round_glasses" onclick="setTrait('accessory','round_glasses')">Round Glasses<br/><small>(Kacamata Bulat)</small></button>
+                <button class="trait-btn" data-trait="accessory" data-val="square_glasses" onclick="setTrait('accessory','square_glasses')">Square Glasses<br/><small>(Kacamata Kotak)</small></button>
+                <button class="trait-btn" data-trait="accessory" data-val="sunglasses" onclick="setTrait('accessory','sunglasses')">Sunglasses<br/><small>(Kacamata Hitam)</small></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         MODUL 3: SIMULATOR ALAM BOALEMO, SORTER STRUKTUR & GUIDED WRITING
+         ================================================================= -->
+    <section id="mod-3" class="module-panel">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">🌅 Simulator Deskripsi Tempat & Benda: Pesisir dan Agraris Boalemo</div>
+          <span class="badge-kbc">Manipulasi Variabel Waktu & Cuaca</span>
+        </div>
+
+        <div class="sub-pill-bar">
+          <button class="sub-pill active" id="btn-obj-beach" onclick="setSimObject('beach')">🏖️ Pantai Bolihutuo (Place)</button>
+          <button class="sub-pill" id="btn-obj-farm" onclick="setSimObject('farm')">🌽 Kebun Jagung Tilamuta (Place)</button>
+          <button class="sub-pill" id="btn-obj-boat" onclick="setSimObject('boat')">⛵ Perahu Katinting (Thing)</button>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <div style="background:#e2e8f0; border-radius:14px; overflow:hidden; border:2px solid var(--tosca-main); margin-bottom:12px;">
+              <svg id="boalemoSvg" viewBox="0 0 600 300" width="100%" height="230" xmlns="http://www.w3.org/2000/svg">
+                <rect id="svgSky" x="0" y="0" width="600" height="190" fill="#38bdf8" />
+                <circle id="svgSun" cx="490" cy="60" r="30" fill="#fde047" />
+                <path d="M0 190 Q150 105 320 190 T600 175 L600 195 L0 195 Z" fill="#15803d" opacity="0.85" />
+                <rect id="svgGround" x="0" y="190" width="600" height="110" fill="#0284c7" />
+                <path d="M20 225 Q80 210 140 225 T260 225 T380 225 T500 225" stroke="#bae6fd" stroke-width="4" fill="none" />
+                <g id="groupBeach">
+                  <path d="M0 255 Q240 240 600 275 L600 300 L0 300 Z" fill="#fef08a" />
+                  <path d="M95 270 Q105 190 120 135" stroke="#78350f" stroke-width="12" fill="none" stroke-linecap="round" />
+                  <circle cx="120" cy="130" r="30" fill="#166534" />
+                  <circle cx="95" cy="145" r="22" fill="#15803d" />
+                  <circle cx="145" cy="145" r="22" fill="#15803d" />
+                </g>
+                <g id="groupFarm" style="display:none;">
+                  <rect x="0" y="190" width="600" height="110" fill="#3f6212" />
+                  <g transform="translate(80, 160)">
+                    <rect x="10" y="15" width="8" height="75" fill="#65a30d" />
+                    <ellipse cx="14" cy="35" rx="10" ry="18" fill="#facc15" />
+                    <rect x="120" y="15" width="8" height="75" fill="#65a30d" />
+                    <ellipse cx="124" cy="35" rx="10" ry="18" fill="#facc15" />
+                    <rect x="230" y="15" width="8" height="75" fill="#65a30d" />
+                    <ellipse cx="234" cy="35" rx="10" ry="18" fill="#facc15" />
+                  </g>
+                </g>
+                <g id="groupBoat" transform="translate(260, 185)">
+                  <polygon points="0,30 140,30 115,56 25,56" fill="#b45309" stroke="#fef3c7" stroke-width="2" />
+                  <line x1="70" y1="30" x2="70" y2="-22" stroke="#78350f" stroke-width="5" />
+                  <polygon points="70,-20 122,15 70,15" fill="#f59e0b" />
+                  <line x1="5" y1="60" x2="135" y2="60" stroke="#fde047" stroke-width="5" stroke-linecap="round" />
+                </g>
+              </svg>
+            </div>
+
+            <div class="trait-group" style="margin-bottom:10px;">
+              <label style="display:flex; justify-content:space-between; font-weight:700; font-size:0.84rem; color:var(--tosca-dark);">
+                <span>☀️ Waktu (Time of Day):</span>
+                <span id="timeLabel">Bright Morning</span>
+              </label>
+              <input type="range" id="timeSlider" min="1" max="3" step="1" value="1" style="width:100%; margin-top:6px;" oninput="updateSimulator()" />
+            </div>
+
+            <div class="trait-group">
+              <label style="display:flex; justify-content:space-between; font-weight:700; font-size:0.84rem; color:var(--tosca-dark);">
+                <span>🌊 Suasana Alam (Condition):</span>
+                <span id="windLabel">Calm & Peaceful</span>
+              </label>
+              <input type="range" id="windSlider" min="1" max="3" step="1" value="1" style="width:100%; margin-top:6px;" oninput="updateSimulator()" />
+            </div>
+          </div>
+
+          <div>
+            <div class="live-text-output" id="simParagraph"></div>
+            <div style="margin-top:10px; padding:12px 14px; border-radius:10px; background:#fffbeb; border:1.5px solid var(--gold-main); font-size:0.86rem;" id="simReasoningBox"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">🧩 Bedah Struktur (Identification vs Description) & Studio Menulis Mandiri</div>
+          <span class="badge-kbc">Umpan Balik Penalaran</span>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <h4 style="color:var(--tosca-dark); margin-bottom:10px;">Latihan Klasifikasi Struktur Kalimat:</h4>
+            <div class="sentence-item">
+              <p style="font-size:0.88rem; margin-bottom:8px;">1. "Boni is a gentle whale shark that swims in the coastal water of Gorontalo."</p>
+              <button class="btn btn-outline" onclick="checkSort(0, 'ID')">Identification</button>
+              <button class="btn btn-outline" onclick="checkSort(0, 'DESC')">Description</button>
+              <div class="feedback-inline" id="sort-fb-0"></div>
+            </div>
+            <div class="sentence-item">
+              <p style="font-size:0.88rem; margin-bottom:8px;">2. "It has a huge bluish-grey body covered with white spots and wide fins."</p>
+              <button class="btn btn-outline" onclick="checkSort(1, 'ID')">Identification</button>
+              <button class="btn btn-outline" onclick="checkSort(1, 'DESC')">Description</button>
+              <div class="feedback-inline" id="sort-fb-1"></div>
+            </div>
+            <div class="sentence-item">
+              <p style="font-size:0.88rem; margin-bottom:8px;">3. "Mrs. Rahma has a round face, calm brown eyes, and always wears a neat hijab."</p>
+              <button class="btn btn-outline" onclick="checkSort(2, 'ID')">Identification</button>
+              <button class="btn btn-outline" onclick="checkSort(2, 'DESC')">Description</button>
+              <div class="feedback-inline" id="sort-fb-2"></div>
+            </div>
+          </div>
+
+          <div>
+            <h4 style="color:var(--tosca-dark); margin-bottom:10px;">✍️ Guided Descriptive Writing (Susun Paragrafmu):</h4>
+            <div style="margin-bottom:8px;">
+              <label style="font-weight:700; font-size:0.82rem;">Nama Objek (Manusia / Hewan / Benda / Tempat):</label>
+              <input type="text" id="wrSubject" class="form-input" value="My Best Friend, Fauzan" oninput="buildStudentParagraph()" />
+            </div>
+            <div style="margin-bottom:8px;">
+              <label style="font-weight:700; font-size:0.82rem;">Kalimat Identification (Siapa/Apa & Asalnya):</label>
+              <input type="text" id="wrLocation" class="form-input" value="a cheerful seventh-grade student at MTs Tilamuta" oninput="buildStudentParagraph()" />
+            </div>
+            <div style="margin-bottom:8px;">
+              <label style="font-weight:700; font-size:0.82rem;">Ciri Fisik / Bentuk / Warna (Physical Qualities):</label>
+              <input type="text" id="wrFeatures" class="form-input" value="an oval face, short black hair, bright eyes, and a warm smile" oninput="buildStudentParagraph()" />
+            </div>
+            <div style="margin-bottom:10px;">
+              <label style="font-weight:700; font-size:0.82rem;">Sifat Baik / Kebiasaan Positif (Habit / Function):</label>
+              <input type="text" id="wrActivity" class="form-input" value="helps his classmates and keeps our classroom clean every day" oninput="buildStudentParagraph()" />
+            </div>
+            <div class="live-text-output" id="studentWritingOutput" style="font-size:0.88rem;"></div>
+            <button class="btn btn-gold" style="margin-top:8px;" onclick="speakStudentWriting()">🔊 Latih Pelafalan Presentasi</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         MODUL 4: EVALUASI 10 SOAL HOTS MULTI-FORMAT + STIMULUS GAMBAR + CLOUD SYNC
+         ================================================================= -->
+    <section id="mod-4" class="module-panel">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">🎯 Evaluasi HOTS 10 Nomor (Stimulus Gambar & Multi-Format Interaktif)</div>
+          <span class="badge-kbc">Objektif • Matching Dropdown • Arrange • Matrix • Drawing Canvas</span>
+        </div>
+
+        <!-- IDENTITAS MURID & PENGATURAN WEB APP SPREADSHEET -->
+        <div class="grid-3" style="margin-bottom:16px; background:var(--tosca-soft); padding:16px; border-radius:12px; border:1.5px solid var(--tosca-light);">
+          <div>
+            <label style="font-weight:700; font-size:0.84rem;">Nama Lengkap Murid:</label>
+            <input type="text" id="studentName" class="form-input" placeholder="Contoh: Siti Nurhaliza" />
+          </div>
+          <div>
+            <label style="font-weight:700; font-size:0.84rem;">Kelas / Madrasah:</label>
+            <input type="text" id="studentClass" class="form-input" value="VII-A MTs Boalemo" />
+          </div>
+          <div>
+            <label style="font-weight:700; font-size:0.84rem;">Kelompok Belajar:</label>
+            <select id="studentTeam" class="form-input">
+              <option value="Bolihutuo">Kelompok Bolihutuo</option>
+              <option value="Pulo Cinta">Kelompok Pulo Cinta</option>
+              <option value="Tilamuta">Kelompok Tilamuta</option>
+              <option value="Mananggu">Kelompok Mananggu</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- KONFIGURASI URL GOOGLE APPS SCRIPT UNTUK GURU -->
+        <details style="margin-bottom:20px; background:#fffbeb; border:1.5px solid var(--gold-main); border-radius:12px; padding:12px 16px;">
+          <summary style="font-weight:800; color:var(--gold-dark); cursor:pointer; font-size:0.88rem;">
+            ⚙️ Pengaturan Koneksi Google Spreadsheet Guru (Klik untuk mengatur URL Web App Analisis Soal)
+          </summary>
+          <div style="margin-top:10px;">
+            <p style="font-size:0.82rem; margin-bottom:6px;">
+              Tempelkan <strong>URL Web App Google Apps Script</strong> (`https://script.google.com/macros/s/.../exec`) di bawah ini agar nilai dan analisis butir soal (`Soal 1` s.d. `Soal 10`) otomatis terekam ke Google Spreadsheet Anda:
+            </p>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <input type="url" id="gasWebhookUrl" class="form-input" style="flex:1; margin-top:0;" placeholder="https://script.google.com/macros/s/AKfycb.../exec" onchange="saveWebhookUrl()" />
+              <button class="btn btn-primary" onclick="saveWebhookUrl()">💾 Simpan URL Spreadsheet</button>
+            </div>
+          </div>
+        </details>
+
+        <!-- ======================= SOAL NOMOR 1 (HOTS PG VISUAL) ======================= -->
+        <div class="quiz-question-card">
+          <div class="q-header-row">
+            <span class="q-num-badge">SOAL 1 • Poin: <span id="pts-1">0</span>/10</span>
+            <span class="q-type-badge">HOTS Visual Deduction • Describing People</span>
+          </div>
+          <div class="visual-stimulus-box">
+            <div class="visual-svg-frame">
+              <svg viewBox="0 0 240 140" width="100%" height="135">
+                <rect width="240" height="140" fill="#e0f2fe"/>
+                <!-- Zahra (Left: Round face, Tosca Hijab, Round Glasses) -->
+                <path d="M25 135 Q65 95 105 135 Z" fill="#0d9488"/>
+                <circle cx="65" cy="65" r="32" fill="#0d9488"/>
+                <circle cx="65" cy="68" r="24" fill="#fde2c4"/>
+                <circle cx="56" cy="65" r="7" fill="none" stroke="#b45309" stroke-width="2"/>
+                <circle cx="74" cy="65" r="7" fill="none" stroke="#b45309" stroke-width="2"/>
+                <line x1="63" y1="65" x2="67" y2="65" stroke="#b45309" stroke-width="2"/>
+                <path d="M57 80 Q65 87 73 80" stroke="#be123c" stroke-width="2.5" fill="none"/>
+                <text x="65" y="130" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">ZAHRA</text>
+                <!-- Amina (Right: Oval face, Gold Hijab, No Glasses, Freckles) -->
+                <path d="M135 135 Q175 95 215 135 Z" fill="#d97706"/>
+                <ellipse cx="175" cy="65" rx="30" ry="34" fill="#f59e0b"/>
+                <ellipse cx="175" cy="68" rx="21" ry="26" fill="#eab676"/>
+                <circle cx="167" cy="64" r="3" fill="#1e293b"/>
+                <circle cx="183" cy="64" r="3" fill="#1e293b"/>
+                <circle cx="162" cy="73" r="1.3" fill="#78350f"/><circle cx="188" cy="73" r="1.3" fill="#78350f"/>
+                <path d="M167 80 Q175 88 183 80" stroke="#be123c" stroke-width="2.5" fill="none"/>
+                <text x="175" y="130" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">AMINA</text>
+              </svg>
+            </div>
+            <div>
+              <p style="font-size:0.88rem; font-style:italic; margin-bottom:6px;">
+                <strong>Stimulus Kasus:</strong> Look at the illustration of twin sisters at MTs Tilamuta, <strong>Zahra</strong> and <strong>Amina</strong>. The English Club is looking for their spokesperson: <em>"She has a round face and fair skin. She wears a neat tosca hijab and round reading glasses."</em>
+              </p>
+              <p style="font-weight:700; color:var(--slate-dark); font-size:0.92rem;">
+                Based on the visual evidence and descriptive text, which statement is TRUE?
+              </p>
+            </div>
+          </div>
+          <div class="options-list" id="q1-opts">
+            <button class="opt-btn" onclick="gradeMC(1, 'A', false, this, 'Kurang tepat. Amina memiliki wajah oval, jilbab emas, dan tidak memakai kacamata.')">A. The spokesperson is Amina because she wears a golden hijab and has no glasses.</button>
+            <button class="opt-btn" onclick="gradeMC(1, 'B', true, this, 'BENAR! Ciri-ciri wajah bulat (round face), kulit cerah (fair skin), jilbab toska (tosca hijab), dan kacamata bulat (round glasses) semuanya merujuk secara akurat pada ilustrasi Zahra.')">B. The spokesperson is Zahra because her physical features match all the descriptions in the announcement.</button>
+            <button class="opt-btn" onclick="gradeMC(1, 'C', false, this, 'Kurang tepat. Zahra memakai kacamata bulat (round glasses), bukan kacamata hitam (sunglasses).')">C. Both Zahra and Amina wear dark sunglasses and have square faces.</button>
+            <button class="opt-btn" onclick="gradeMC(1, 'D', false, this, 'Kurang tepat. Pengumuman menggunakan kata ganti tunggal She dan merinci ciri khusus milik Zahra.')">D. Neither Zahra nor Amina matches the description because both have short spiky hair.</button>
+          </div>
+          <div class="feedback-inline" id="fb-q1"></div>
+        </div>
+
+        <!-- ======================= SOAL NOMOR 2 (HOTS PG VISUAL) ======================= -->
+        <div class="quiz-question-card">
+          <div class="q-header-row">
+            <span class="q-num-badge">SOAL 2 • Poin: <span id="pts-2">0</span>/10</span>
+            <span class="q-type-badge">HOTS Infographic Analysis • Describing Animals</span>
+          </div>
+          <div class="visual-stimulus-box">
+            <div class="visual-svg-frame">
+              <svg viewBox="0 0 240 140" width="100%" height="135">
+                <rect width="240" height="140" fill="#0284c7"/>
+                <path d="M0 30 Q60 15 120 30 T240 30" stroke="#7dd3fc" stroke-width="3" fill="none"/>
+                <!-- Whale Shark Body -->
+                <ellipse cx="115" cy="78" rx="75" ry="26" fill="#334155"/>
+                <polygon points="180,78 220,52 212,78 220,104" fill="#334155"/>
+                <polygon points="105,54 125,30 135,55" fill="#1e293b"/>
+                <!-- White Spots -->
+                <circle cx="85" cy="70" r="3" fill="#fff"/><circle cx="105" cy="68" r="3" fill="#fff"/><circle cx="125" cy="72" r="3" fill="#fff"/>
+                <circle cx="95" cy="82" r="3" fill="#fff"/><circle cx="115" cy="80" r="3" fill="#fff"/><circle cx="140" cy="76" r="3" fill="#fff"/>
+                <circle cx="55" cy="75" r="4" fill="#fef08a"/>
+                <rect x="10" y="112" width="220" height="22" rx="5" fill="#0f172a" opacity="0.75"/>
+                <text x="120" y="127" font-size="10" font-weight="bold" fill="#fef08a" text-anchor="middle">WHALE SHARK • Length: 9m • Diet: Tiny Plankton</text>
+              </svg>
+            </div>
+            <div>
+              <p style="font-size:0.88rem; font-style:italic; margin-bottom:6px;">
+                <strong>Stimulus Poster Konservasi:</strong> Observe the marine poster of Tomini Bay above. A student writes: <em>"The whale shark (1) ______ a huge grey body with white spots. Although its body is giant, it (2) ______ gentle and only eats tiny plankton."</em>
+              </p>
+              <p style="font-weight:700; color:var(--slate-dark); font-size:0.92rem;">
+                Which pair of words best completes (1) and (2) and explains why tourists do not need to fear this animal?
+              </p>
+            </div>
+          </div>
+          <div class="options-list" id="q2-opts">
+            <button class="opt-btn" onclick="gradeMC(2, 'A', false, this, 'Kurang tepat. Kata have digunakan untuk subjek jamak, sedangkan The whale shark adalah tunggal.')">A. (1) have – (2) are, because whale sharks hunt big fish aggressively.</button>
+            <button class="opt-btn" onclick="gradeMC(2, 'B', true, this, 'BENAR! Subjek tunggal The whale shark membutuhkan kata kerja kepemilikan has untuk noun phrase (a huge grey body) dan linking verb is untuk kata sifat (gentle), serta makanannya hanya plankton kecil.')">B. (1) has – (2) is, because it is a harmless filter-feeder that only eats tiny plankton.</button>
+            <button class="opt-btn" onclick="gradeMC(2, 'C', false, this, 'Kurang tepat. Bagian (1) diikuti oleh kata benda (a huge grey body) sehingga membutuhkan has, bukan is.')">C. (1) is – (2) has, because it lives on the dry hills of Tilamuta.</button>
+            <button class="opt-btn" onclick="gradeMC(2, 'D', false, this, 'Kurang tepat. Teks deskriptif fakta ilmiah menggunakan Simple Present Tense, bukan Past Tense (had - was).')">D. (1) had – (2) was, because the whale shark is already extinct.</button>
+          </div>
+          <div class="feedback-inline" id="fb-q2"></div>
+        </div>
+
+        <!-- ======================= SOAL NOMOR 3 (HOTS PG VISUAL) ======================= -->
+        <div class="quiz-question-card">
+          <div class="q-header-row">
+            <span class="q-num-badge">SOAL 3 • Poin: <span id="pts-3">0</span>/10</span>
+            <span class="q-type-badge">HOTS Visual Comparison • Describing Places</span>
+          </div>
+          <div class="visual-stimulus-box">
+            <div class="visual-svg-frame">
+              <svg viewBox="0 0 240 140" width="100%" height="135">
+                <!-- Left: Bolihutuo Coast -->
+                <rect x="0" y="0" width="118" height="140" fill="#bae6fd"/>
+                <rect x="0" y="85" width="118" height="55" fill="#0284c7"/>
+                <path d="M0 110 Q60 100 118 118 L118 140 L0 140 Z" fill="#fef08a"/>
+                <circle cx="35" cy="55" r="18" fill="#166534"/>
+                <rect x="32" y="70" width="6" height="35" fill="#78350f"/>
+                <text x="59" y="20" font-size="9.5" font-weight="bold" fill="#0f172a" text-anchor="middle">BOLIHUTUO COAST</text>
+                <!-- Right: Dulupi Corn Hills -->
+                <rect x="122" y="0" width="118" height="140" fill="#fef9c3"/>
+                <path d="M122 95 Q180 45 240 95 L240 140 L122 140 Z" fill="#4d7c0f"/>
+                <ellipse cx="160" cy="95" rx="7" ry="13" fill="#facc15"/>
+                <ellipse cx="195" cy="95" rx="7" ry="13" fill="#facc15"/>
+                <text x="181" y="20" font-size="9.5" font-weight="bold" fill="#0f172a" text-anchor="middle">DULUPI CORN HILLS</text>
+              </svg>
+            </div>
+            <div>
+              <p style="font-size:0.88rem; font-style:italic; margin-bottom:6px;">
+                <strong>Stimulus Perbandingan Wilayah:</strong> Boalemo Regency has two main landscapes shown in the picture: <strong>Bolihutuo Coast</strong> and <strong>Dulupi Corn Hills</strong>.
+              </p>
+              <p style="font-weight:700; color:var(--slate-dark); font-size:0.92rem;">
+                Which descriptive conclusion accurately contrasts the two places based on the visual stimulus?
+              </p>
+            </div>
+          </div>
+          <div class="options-list" id="q3-opts">
+            <button class="opt-btn" onclick="gradeMC(3, 'A', true, this, 'BENAR! Bolihutuo Coast memiliki pasir putih, pohon rindang, dan laut biru, sedangkan Dulupi Corn Hills memiliki perbukitan hijau yang subur dengan tanaman jagung kuning.')">A. Bolihutuo Coast features white sand and blue sea water, whereas Dulupi Corn Hills feature green slopes planted with yellow corn.</button>
+            <button class="opt-btn" onclick="gradeMC(3, 'B', false, this, 'Kurang tepat. Karakteristik kedua tempat tertukar.')">B. Bolihutuo Coast is a dry mountain full of corn, while Dulupi is an island surrounded by coral reefs.</button>
+            <button class="opt-btn" onclick="gradeMC(3, 'C', false, this, 'Kurang tepat. Kedua wilayah tersebut merupakan lingkungan alam hijau dan pesisir, bukan gedung pencakar langit bersalju.')">C. Both places are covered with white snow and tall factory buildings all year round.</button>
+            <button class="opt-btn" onclick="gradeMC(3, 'D', false, this, 'Kurang tepat. Dulupi Corn Hills adalah kawasan pertanian daratan/perbukitan.')">D. Neither Bolihutuo nor Dulupi has any plants or trees growing on the land.</button>
+          </div>
+          <div class="feedback-inline" id="fb-q3"></div>
+        </div>
+
+        <!-- ======================= SOAL NOMOR 4 (MATCHING DROPDOWN - SALON CARD) ======================= -->
+        <div class="quiz-question-card">
+          <div class="q-header-row">
+            <span class="q-num-badge">SOAL 4 • Poin: <span id="pts-4">0</span>/10</span>
+            <span class="q-type-badge">Interactive Matching Dropdown • Linking Verbs & Actions</span>
+          </div>
+          <div class="visual-stimulus-box">
+            <div class="visual-svg-frame">
+              <svg viewBox="0 0 240 140" width="100%" height="135">
+                <rect width="240" height="140" fill="#f0fdfa"/>
+                <circle cx="70" cy="70" r="42" fill="#eab676" stroke="#0d9488" stroke-width="3"/>
+                <path d="M35 50 L42 22 Q70 15 98 22 L105 50 Z" fill="#0f172a"/>
+                <circle cx="56" cy="66" r="5" fill="#1e293b"/><circle cx="84" cy="66" r="5" fill="#1e293b"/>
+                <path d="M54 84 Q70 78 86 84" stroke="#1e293b" stroke-width="3.5" fill="none"/>
+                <path d="M56 94 Q70 103 84 94" stroke="#9f1239" stroke-width="3" fill="none"/>
+                <text x="165" y="45" font-size="11" font-weight="bold" fill="#0f524d" text-anchor="middle">USTAZ FARHAN</text>
+                <text x="165" y="65" font-size="9.5" fill="#334155" text-anchor="middle">• Polite & Patient</text>
+                <text x="165" y="82" font-size="9.5" fill="#334155" text-anchor="middle">• Square Face, Mustache</text>
+                <text x="165" y="99" font-size="9.5" fill="#334155" text-anchor="middle">• Black Kopiah</text>
+              </svg>
+            </div>
+            <div>
+              <p style="font-size:0.88rem; margin-bottom:6px;">
+                <strong>Instruksi Matching Drop-Down:</strong> Pasangkan setiap kalimat rumpang di sebelah kiri dengan kata kerja <em>Simple Present Tense</em> yang paling akurat pada menu <strong>Drop-Down</strong> berdasarkan kartu profil <strong>Ustaz Farhan</strong>!
+              </p>
+            </div>
+          </div>
+
+          <div class="match-row">
+            <span>1. Ustaz Farhan ______ very polite, patient, and humble to his students.</span>
+            <select id="q4-s1" class="match-select">
+              <option value="">-- Pilih Kata Kerja --</option>
+              <option value="is">is (Linking Verb + Adjective)</option>
+              <option value="has">has (Kepemilikan Tunggal)</option>
+              <option value="wears">wears (Memakai)</option>
+              <option value="are">are (Subjek Jamak)</option>
+            </select>
+          </div>
+          <div class="match-row">
+            <span>2. He ______ a square face, calm brown eyes, and a neat thin mustache.</span>
+            <select id="q4-s2" class="match-select">
+              <option value="">-- Pilih Kata Kerja --</option>
+              <option value="is">is (Linking Verb + Adjective)</option>
+              <option value="has">has (Kepemilikan Tunggal)</option>
+              <option value="wears">wears (Memakai)</option>
+              <option value="are">are (Subjek Jamak)</option>
+            </select>
+          </div>
+          <div class="match-row">
+            <span>3. Every day at the madrasah, he ______ a traditional black kopiah.</span>
+            <select id="q4-s3" class="match-select">
+              <option value="">-- Pilih Kata Kerja --</option>
+              <option value="is">is (Linking Verb + Adjective)</option>
+              <option value="has">has (Kepemilikan Tunggal)</option>
+              <option value="wears">wears (Memakai)</option>
+              <option value="are">are (Subjek Jamak)</option>
+            </select>
+          </div>
+          <div class="match-row">
+            <span>4. All seventh-grade students ______ happy to learn English with him.</span>
+            <select id="q4-s4" class="match-select">
+              <option value="">-- Pilih Kata Kerja --</option>
+              <option value="is">is (Linking Verb + Adjective)</option>
+              <option value="has">has (Kepemilikan Tunggal)</option>
+              <option value="wears">wears (Memakai)</option>
+              <option value="are">are (Subjek Jamak)</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" style="margin-top:8px;" onclick="gradeQ4()">✔️ Kunci & Periksa Jawaban Soal 4</button>
+          <div class="feedback-inline" id="fb-q4"></div>
+        </div>
+
+        <!-- ======================= SOAL NOMOR 5 (MATCHING DROPDOWN - 4 OBJEK LOKAL) ======================= -->
+        <div class="quiz-question-card">
+          <div class="q-header-row">
+            <span class="q-num-badge">SOAL 5 • Poin: <span id="pts-5">0</span>/10</span>
+            <span class="q-type-badge">Interactive Matching Dropdown • Sensory & Material Adjectives</span>
+          </div>
+          <div class="visual-stimulus-box">
+            <div class="visual-svg-frame">
+              <svg viewBox="0 0 240 140" width="100%" height="135">
+                <rect x="6" y="6" width="108" height="60" rx="8" fill="#ccfbf1" stroke="#0d9488"/>
+                <rect x="20" y="20" width="32" height="32" rx="4" fill="#0d9488" stroke="#f59e0b" stroke-width="2"/>
+                <text x="80" y="40" font-size="9.5" font-weight="bold" fill="#0f524d" text-anchor="middle">1. Karawo Bag</text>
+
+                <rect x="126" y="6" width="108" height="60" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+                <polygon points="135,45 175,45 168,56 142,56" fill="#b45309"/>
+                <text x="195" y="40" font-size="9.5" font-weight="bold" fill="#b45309" text-anchor="middle">2. Katinting</text>
+
+                <rect x="6" y="74" width="108" height="60" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+                <circle cx="32" cy="100" r="14" fill="#15803d"/>
+                <text x="78" y="108" font-size="9.5" font-weight="bold" fill="#14532d" text-anchor="middle">3. Pine Trees</text>
+
+                <rect x="126" y="74" width="108" height="60" rx="8" fill="#e0f2fe" stroke="#0284c7"/>
+                <path d="M136 105 Q150 95 164 105" stroke="#0284c7" stroke-width="3" fill="none"/>
+                <text x="195" y="108" font-size="9.5" font-weight="bold" fill="#0369a1" text-anchor="middle">4. Tomini Sea</text>
+              </svg>
+            </div>
+            <div>
+              <p style="font-size:0.88rem;">
+                <strong>Instruksi Matching Objek Visual:</strong> Jodohkan keempat objek ikonik pada gambar di samping dengan deskripsi sifat/bahan (<em>Adjective Phrase</em>) yang paling tepat melalui menu <strong>Drop-Down</strong>!
+              </p>
+            </div>
+          </div>
+
+          <div class="match-row">
+            <span>1. Gorontalo Karawo Sling Bag</span>
+            <select id="q5-s1" class="match-select">
+              <option value="">-- Pilih Frasa Deskriptif --</option>
+              <option value="bag">Rectangular canvas with golden embroidery</option>
+              <option value="boat">Slim wooden hull with bamboo outriggers</option>
+              <option value="tree">Giant and shady along the sandy coast</option>
+              <option value="sea">Clear turquoise and calm water</option>
+            </select>
+          </div>
+          <div class="match-row">
+            <span>2. Traditional Katinting Fishing Boat</span>
+            <select id="q5-s2" class="match-select">
+              <option value="">-- Pilih Frasa Deskriptif --</option>
+              <option value="bag">Rectangular canvas with golden embroidery</option>
+              <option value="boat">Slim wooden hull with bamboo outriggers</option>
+              <option value="tree">Giant and shady along the sandy coast</option>
+              <option value="sea">Clear turquoise and calm water</option>
+            </select>
+          </div>
+          <div class="match-row">
+            <span>3. Bolihutuo Coastal Pine Trees</span>
+            <select id="q5-s3" class="match-select">
+              <option value="">-- Pilih Frasa Deskriptif --</option>
+              <option value="bag">Rectangular canvas with golden embroidery</option>
+              <option value="boat">Slim wooden hull with bamboo outriggers</option>
+              <option value="tree">Giant and shady along the sandy coast</option>
+              <option value="sea">Clear turquoise and calm water</option>
+            </select>
+          </div>
+          <div class="match-row">
+            <span>4. Tomini Bay Marine Water</span>
+            <select id="q5-s4" class="match-select">
+              <option value="">-- Pilih Frasa Deskriptif --</option>
+              <option value="bag">Rectangular canvas with golden embroidery</option>
+              <option value="boat">Slim wooden hull with bamboo outriggers</option>
+              <option value="tree">Giant and shady along the sandy coast</option>
+              <option value="sea">Clear turquoise and calm water</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" style="margin-top:8px;" onclick="gradeQ5()">✔️ Kunci & Periksa Jawaban Soal 5</button>
+          <div class="feedback-inline" id="fb-q5"></div>
+        </div>
+
+        <!-- ======================= SOAL NOMOR 6 (TAP-TO-ARRANGE WORD ORDER) ======================= -->
+        <div class="quiz-question-card">
+          <div class="q-header-row">
+            <span class="q-num-badge">SOAL 6 • Poin: <span id="pts-6">0</span>/10</span>
+            <span class="q-type-badge">Interactive Word Arrange • Adjective Order</span>
+          </div>
+          <div class="visual-stimulus-box">
+            <div class="visual-svg-frame">
+              <svg viewBox="0 0 240 140" width="100%" height="135">
+                <rect width="240" height="140" fill="#e0f2fe"/>
+                <rect y="95" width="240" height="45" fill="#0284c7"/>
+                <polygon points="45,75 195,75 170,105 70,105" fill="#9a3412" stroke="#fef08a" stroke-width="2"/>
+                <line x1="120" y1="75" x2="120" y2="20" stroke="#78350f" stroke-width="5"/>
+                <polygon points="120,22 175,60 120,60" fill="#f59e0b"/>
+                <line x1="35" y1="108" x2="205" y2="108" stroke="#fde047" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <p style="font-size:0.88rem;">
+                <strong>Instruksi Menyusun Kata (Tap-to-Arrange):</strong> Klik kepingan kata di bawah ini secara berurutan untuk menyusun kalimat deskriptif yang benar sesuai kaidah <em>Adjective Order</em> (<em>Opinion/Quality + Color + Material + Noun</em>)!<br/>
+                <em>Makna: "Nelayan itu memiliki sebuah perahu kayu cokelat yang kuat."</em>
+              </p>
+            </div>
+          </div>
+
+          <div style="font-size:0.82rem; font-weight:700; color:var(--tosca-dark); margin-bottom:4px;">Kotak Susunan Kalimatmu (Klik kata di dalam kotak untuk membatalkan):</div>
+          <div class="arrange-target-box" id="q6-target"></div>
+          <div class="chip-bank" id="q6-bank"></div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="gradeQ6()">✔️ Periksa Susunan Kalimat Soal 6</button>
+            <button class="btn btn-outline" onclick="initQ6()">🔄 Reset Kata</button>
+          </div>
+          <div class="feedback-inline" id="fb-q6"></div>
+        </div>
+
+        <!-- ======================= SOAL NOMOR 7 (TAP-TO-ARRANGE PARAGRAPH COHERENCE) ======================= -->
+        <div class="quiz-question-card">
+          <div class="q-header-row">
+            <span class="q-num-badge">SOAL 7 • Poin: <span id="pts-7">0</span>/10</span>
+            <span class="q-type-badge">Interactive Paragraph Builder • Generic Structure</span>
+          </div>
+          <div class="visual-stimulus-box">
+            <div class="visual-svg-frame">
+              <svg viewBox="0 0 240 140" width="100%" height="135">
+                <rect width="240" height="140" fill="#06b6d4"/>
+                <!-- Heart-shaped boardwalk & cottages -->
+                <path d="M120 115 C120 115 60 80 60 48 C60 28 85 20 120 45 C155 20 180 28 180 48 C180 80 120 115 120 115 Z" fill="none" stroke="#fde68a" stroke-width="5"/>
+                <polygon points="105,65 120,45 135,65" fill="#92400e"/>
+                <rect x="110" y="65" width="20" height="14" fill="#fef3c7"/>
+                <text x="120" y="132" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">PULO CINTA ECO-RESORT • TOMINI BAY</text>
+              </svg>
+            </div>
+            <div>
+              <p style="font-size:0.88rem;">
+                <strong>Instruksi Menyusun Paragraf (Sequence Order):</strong> Klik keempat kalimat acak di bawah ini secara berurutan mulai dari <strong>Identification</strong> (pengenalan umum), diikuti <strong>Description</strong> (rincian pasir & pondok kayu), hingga <strong>KBC Habit</strong> (energi surya ramah lingkungan)!
+              </p>
+            </div>
+          </div>
+
+          <div style="font-size:0.82rem; font-weight:700; color:var(--tosca-dark); margin-bottom:4px;">Urutan Paragraf Pilihanmu:</div>
+          <div class="arrange-target-box" id="q7-target" style="flex-direction:column; align-items:stretch;"></div>
+          <div class="chip-bank" id="q7-bank" style="flex-direction:column;"></div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="gradeQ7()">✔️ Periksa Urutan Paragraf Soal 7</button>
+            <button class="btn btn-outline" onclick="initQ7()">🔄 Reset Urutan</button>
+          </div>
+          <div class="feedback-inline" id="fb-q7"></div>
+        </div>
+
+        <!-- ======================= SOAL NOMOR 8 (HOTS MATRIX TRUE/FALSE AKM) ======================= -->
+        <div class="quiz-question-card">
+          <div class="q-header-row">
+            <span class="q-num-badge">SOAL 8 • Poin: <span id="pts-8">0</span>/10</span>
+            <span class="q-type-badge">HOTS Multi-Statement True/False • Lost Pet Poster</span>
+          </div>
+          <div class="visual-stimulus-box">
+            <div class="visual-svg-frame">
+              <svg viewBox="0 0 240 140" width="100%" height="135">
+                <rect width="240" height="140" fill="#fffbeb"/>
+                <rect x="10" y="8" width="220" height="124" rx="8" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+                <!-- Cute Orange Cat with Round Face & Blue Collar -->
+                <polygon points="55,45 65,22 80,40" fill="#f97316"/>
+                <polygon points="115,45 105,22 90,40" fill="#f97316"/>
+                <circle cx="85" cy="65" r="28" fill="#fb923c"/>
+                <circle cx="75" cy="60" r="4.5" fill="#166534"/><circle cx="95" cy="60" r="4.5" fill="#166534"/>
+                <polygon points="82,68 88,68 85,73" fill="#fb7185"/>
+                <!-- Blue Bell Collar -->
+                <rect x="65" y="90" width="40" height="8" rx="4" fill="#0284c7"/>
+                <circle cx="85" cy="98" r="5" fill="#facc15"/>
+                <text x="168" y="42" font-size="11" font-weight="bold" fill="#b45309" text-anchor="middle">MILO THE CAT</text>
+                <text x="168" y="60" font-size="9" fill="#334155" text-anchor="middle">• Soft Orange Fur</text>
+                <text x="168" y="76" font-size="9" fill="#334155" text-anchor="middle">• Round Green Eyes</text>
+                <text x="168" y="92" font-size="9" fill="#334155" text-anchor="middle">• Blue Collar + Bell</text>
+              </svg>
+            </div>
+            <div>
+              <p style="font-size:0.88rem;">
+                <strong>Instruksi Matriks Benar/Salah (AKM Style):</strong> Amati poster visual kucing peliharaan bernama <strong>Milo</strong> di samping, lalu tentukan apakah ketiga pernyataan deskriptif di bawah ini <strong>TRUE (Benar)</strong> atau <strong>FALSE (Salah)</strong>!
+              </p>
+            </div>
+          </div>
+
+          <div class="match-row">
+            <span>Pernyataan 1: "Milo has soft orange fur, round green eyes, and wears a blue collar with a yellow bell."</span>
+            <select id="q8-s1" class="match-select">
+              <option value="">-- Pilih TRUE / FALSE --</option>
+              <option value="T">TRUE (Benar)</option>
+              <option value="F">FALSE (Salah)</option>
+            </select>
+          </div>
+          <div class="match-row">
+            <span>Pernyataan 2: "Milo is a fierce wild tiger that has black feathers and sharp wings."</span>
+            <select id="q8-s2" class="match-select">
+              <option value="">-- Pilih TRUE / FALSE --</option>
+              <option value="T">TRUE (Benar)</option>
+              <option value="F">FALSE (Salah)</option>
+            </select>
+          </div>
+          <div class="match-row">
+            <span>Pernyataan 3: "The sentence 'Milo has soft orange fur' belongs to the Description part of the text."</span>
+            <select id="q8-s3" class="match-select">
+              <option value="">-- Pilih TRUE / FALSE --</option>
+              <option value="T">TRUE (Benar)</option>
+              <option value="F">FALSE (Salah)</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" style="margin-top:8px;" onclick="gradeQ8()">✔️ Kunci & Periksa Jawaban Soal 8</button>
+          <div class="feedback-inline" id="fb-q8"></div>
+        </div>
+
+        <!-- ======================= SOAL NOMOR 9 (HOTS MULTI-SELECT CHECKBOXES) ======================= -->
+        <div class="quiz-question-card">
+          <div class="q-header-row">
+            <span class="q-num-badge">SOAL 9 • Poin: <span id="pts-9">0</span>/10</span>
+            <span class="q-type-badge">HOTS Multi-Select Checkboxes • Visual Verification</span>
+          </div>
+          <div class="visual-stimulus-box">
+            <div class="visual-svg-frame">
+              <svg viewBox="0 0 240 140" width="100%" height="135">
+                <rect width="240" height="140" fill="#ecfccb"/>
+                <!-- Farmer Mr. Bahrudin: Straw Hat, Square Glasses, Mustache, Smiling, Holding Corn -->
+                <ellipse cx="105" cy="40" rx="52" ry="12" fill="#eab308"/>
+                <path d="M75 40 Q105 10 135 40 Z" fill="#ca8a04"/>
+                <rect x="78" y="42" width="54" height="62" rx="16" fill="#d97706"/>
+                <rect x="86" y="54" width="16" height="12" fill="none" stroke="#0f172a" stroke-width="2.5"/>
+                <rect x="108" y="54" width="16" height="12" fill="none" stroke="#0f172a" stroke-width="2.5"/>
+                <line x1="102" y1="60" x2="108" y2="60" stroke="#0f172a" stroke-width="2.5"/>
+                <path d="M92 80 Q105 74 118 80" stroke="#1e293b" stroke-width="3.5" fill="none"/>
+                <path d="M94 90 Q105 98 116 90" stroke="#fff" stroke-width="3" fill="none"/>
+                <!-- Corn in hand -->
+                <ellipse cx="175" cy="85" rx="14" ry="28" fill="#facc15" stroke="#15803d" stroke-width="4"/>
+              </svg>
+            </div>
+            <div>
+              <p style="font-size:0.88rem;">
+                <strong>Instruksi Pilihan Ganda Kompleks (Centang 2 Jawaban Benar):</strong> Perhatikan potret <strong>Mr. Bahrudin</strong> (petani jagung teladan dari Kecamatan Mananggu) pada gambar di samping. Centanglah <strong>TEPAT 2 pernyataan</strong> yang sesuai dengan fakta visual gambar tersebut!
+              </p>
+            </div>
+          </div>
+
+          <div class="options-list">
+            <label class="opt-btn" style="display:flex; align-items:center; gap:10px;">
+              <input type="checkbox" id="q9-c1" style="width:20px; height:20px;" />
+              <span>1. Mr. Bahrudin wears a wide yellow straw hat and black square glasses.</span>
+            </label>
+            <label class="opt-btn" style="display:flex; align-items:center; gap:10px;">
+              <input type="checkbox" id="q9-c2" style="width:20px; height:20px;" />
+              <span>2. He has long wavy blonde hair and wears dark coastal sunglasses.</span>
+            </label>
+            <label class="opt-btn" style="display:flex; align-items:center; gap:10px;">
+              <input type="checkbox" id="q9-c3" style="width:20px; height:20px;" />
+              <span>3. He has tan/brown skin, a neat thin mustache, and harvests fresh yellow corn.</span>
+            </label>
+            <label class="opt-btn" style="display:flex; align-items:center; gap:10px;">
+              <input type="checkbox" id="q9-c4" style="width:20px; height:20px;" />
+              <span>4. He wears a tosca hijab and carries a silver laptop on a fishing boat.</span>
+            </label>
+          </div>
+          <button class="btn btn-primary" style="margin-top:10px;" onclick="gradeQ9()">✔️ Kunci & Periksa Jawaban Soal 9</button>
+          <div class="feedback-inline" id="fb-q9"></div>
+        </div>
+
+        <!-- ======================= SOAL NOMOR 10 (INTERACTIVE DRAWING CANVAS & TAGGING) ======================= -->
+        <div class="quiz-question-card">
+          <div class="q-header-row">
+            <span class="q-num-badge">SOAL 10 • Poin: <span id="pts-10">0</span>/10</span>
+            <span class="q-type-badge">HOTS Visual Drawing & Descriptive Tagging Studio</span>
+          </div>
+          <p style="font-size:0.9rem; margin-bottom:10px;">
+            <strong>Misi Menggambar & Menandai Deskripsi (Draw & Describe Challenge):</strong><br/>
+            Bacalah instruksi klien wisata ini: <em>"Please draw a <span class="hl-adj">round golden sun</span> shining above <span class="hl-adj">calm blue sea waves</span> and a <span class="hl-adj">green coastal tree</span>!"</em><br/>
+            1️⃣ Gambarkan sketsa pemandangan tersebut pada <strong>Kanvas Gambar</strong> di bawah ini (minimal 3 goresan kuas).<br/>
+            2️⃣ Lengkapi 2 pertanyaan analisis kalimat di bawah kanvas, lalu klik <strong>Periksa Karya & Jawaban Soal 10</strong>!
+          </p>
+
+          <div class="drawing-studio-wrap">
+            <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:10px;">
+              <span style="font-size:0.82rem; font-weight:800; color:var(--tosca-dark);">🎨 Pilih Warna Kuas:</span>
+              <button class="color-dot-btn active" style="background:#f59e0b;" onclick="setBrushColor('#f59e0b', this)" title="Golden Yellow"></button>
+              <button class="color-dot-btn" style="background:#0284c7;" onclick="setBrushColor('#0284c7', this)" title="Sea Blue"></button>
+              <button class="color-dot-btn" style="background:#16a34a;" onclick="setBrushColor('#16a34a', this)" title="Tree Green"></button>
+              <button class="color-dot-btn" style="background:#78350f;" onclick="setBrushColor('#78350f', this)" title="Wood Brown"></button>
+              <button class="color-dot-btn" style="background:#0f172a;" onclick="setBrushColor('#0f172a', this)" title="Dark Outline"></button>
+              <button class="btn btn-outline" style="min-height:32px; padding:4px 10px; font-size:0.78rem;" onclick="clearDrawCanvas()">🗑️ Bersihkan Kanvas</button>
+              <span style="font-size:0.78rem; color:var(--slate-muted);">Goresan Kuas: <strong id="strokeCountLabel">0</strong></span>
+            </div>
+
+            <canvas id="hotsDrawCanvas" width="520" height="200"></canvas>
+
+            <div class="match-row" style="margin-top:10px;">
+              <span>A. Dalam frasa <em>"a round golden sun"</em>, manakah kata yang berfungsi sebagai <strong>Shape Adjective (Kata Sifat Bentuk)</strong>?</span>
+              <select id="q10-s1" class="match-select">
+                <option value="">-- Pilih Jawaban --</option>
+                <option value="round">round (bulat)</option>
+                <option value="sun">sun (matahari)</option>
+                <option value="above">above (di atas)</option>
+              </select>
+            </div>
+            <div class="match-row">
+              <span>B. Kata <em>"above"</em> dalam kalimat <em>"shining above calm blue sea waves"</em> berfungsi sebagai...</span>
+              <select id="q10-s2" class="match-select">
+                <option value="">-- Pilih Jawaban --</option>
+                <option value="prep">Preposition of Place (Kata Depan Penunjuk Posisi)</option>
+                <option value="verb">Past Tense Action Verb (Kata Kerja Masa Lampau)</option>
+                <option value="pronoun">Personal Pronoun (Kata Ganti Orang)</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" style="margin-top:10px;" onclick="gradeQ10()">✔️ Periksa Karya Gambar & Jawaban Soal 10</button>
+          <div class="feedback-inline" id="fb-q10"></div>
+        </div>
+
+        <!-- PANEL REKAPITULASI SKOR, TABEL ANALISIS BUTIR SOAL & CLOUD SYNC SPREADSHEET -->
+        <div class="card" style="background:linear-gradient(135deg, #f0fdfa 0%, #fef3c7 100%); border:2.5px solid var(--tosca-main); margin-top:24px;">
+          <h3 style="color:var(--tosca-dark); margin-bottom:8px;">📊 Rekapitulasi Nilai & Matriks Analisis 10 Butir Soal</h3>
+          <p id="quizScoreSummary" style="font-size:1.05rem; font-weight:700; margin-bottom:14px;">
+            Selesaikan ke-10 soal HOTS di atas untuk melihat nilai akhir dan matriks analisis butir soal lengkap!
+          </p>
+
+          <!-- MATRIKS LIVE S1 - S10 -->
+          <div class="analysis-table-wrap" style="margin-bottom:16px;">
+            <table class="analysis-table">
+              <thead>
+                <tr>
+                  <th>S1 (PG)</th>
+                  <th>S2 (PG)</th>
+                  <th>S3 (PG)</th>
+                  <th>S4 (Match)</th>
+                  <th>S5 (Match)</th>
+                  <th>S6 (Arrange)</th>
+                  <th>S7 (Paragraph)</th>
+                  <th>S8 (T/F)</th>
+                  <th>S9 (Check)</th>
+                  <th>S10 (Draw)</th>
+                  <th>TOTAL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="liveMatrixRow">
+                  <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; gap:10px;">
+            <button class="btn btn-primary" onclick="sendToSpreadsheet()">☁️ Kirim Analisis Soal ke Google Spreadsheet</button>
+            <button class="btn btn-gold" onclick="exportResultCSV()">📥 Unduh Analisis Butir Soal (.CSV Excel)</button>
+            <button class="btn btn-outline" onclick="saveResultOffline()">💾 Simpan di Memori Lokal</button>
+            <button class="btn btn-outline" onclick="sendWhatsAppSummary()">📲 Kirim Laporan ke WhatsApp Guru</button>
+            <button class="btn btn-outline" onclick="resetAllHotsQuiz()">🔄 Ulangi Evaluasi</button>
+          </div>
+          <p id="saveStatusMsg" style="font-size:0.86rem; color:var(--tosca-dark); margin-top:12px; font-weight:700;"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KARTU FOOTER IDENTITAS PENGEMBANG -->
+    <footer class="dev-footer-card">
+      <div class="dev-profile-left">
+        <img class="dev-avatar-large" src="https://www.image2url.com/r2/default/images/1794317793074-f0faebb3-78dc-4760-a446-277bf4087250.png" alt="Syahril Nur, S.Pd., M.Pd., Gr." onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23f59e0b%22/><text x=%2250%25%22 y=%2255%25%22 font-size=%2234%22 font-family=%22sans-serif%22 font-weight=%22bold%22 fill=%22%230f172a%22 text-anchor=%22middle%22>SN</text></svg>'" />
+        <div>
+          <span style="background:var(--gold-main); color:var(--slate-dark); font-size:0.72rem; font-weight:800; padding:3px 10px; border-radius:999px; text-transform:uppercase;">
+            Instructional Designer & Front-End Developer
+          </span>
+          <h3 style="font-size:1.22rem; font-weight:800; margin-top:6px;">Syahril Nur, S.Pd., M.Pd., Gr.</h3>
+          <p style="font-size:0.85rem; color:var(--tosca-light);">
+            Pengembang Desriptive Text Moduline (MPI Madrasah) • Kanwil Kemenag Provinsi Gorontalo
+          </p>
+        </div>
+      </div>
+      <div>
+        <button class="btn btn-gold" onclick="toggleDevModal(true)">👤 Lihat Detail Pengembang</button>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- MODAL POP-UP PROFIL PENGEMBANG -->
+  <div class="modal-backdrop" id="devModal" onclick="if(event.target===this) toggleDevModal(false)">
+    <div class="modal-box">
+      <img class="dev-avatar-large" style="width:115px; height:115px; margin-bottom:12px;" src="https://www.image2url.com/r2/default/images/1794317793074-f0faebb3-78dc-4760-a446-277bf4087250.png" alt="Syahril Nur, S.Pd., M.Pd., Gr." onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23f59e0b%22/><text x=%2250%25%22 y=%2255%25%22 font-size=%2240%22 font-family=%22sans-serif%22 font-weight=%22bold%22 fill=%22%230f172a%22 text-anchor=%22middle%22>SN</text></svg>'" />
+      <h3 style="color:var(--tosca-dark); font-size:1.25rem; font-weight:800;">Syahril Nur, S.Pd., M.Pd., Gr.</h3>
+      <p style="color:var(--gold-dark); font-weight:700; font-size:0.86rem; margin-bottom:12px;">
+        Pendidik Profesional & Pengembang Media Pembelajaran Digital Madrasah
+      </p>
+      <div style="background:var(--tosca-soft); border:1px solid var(--tosca-light); padding:14px; border-radius:12px; text-align:left; font-size:0.86rem; margin-bottom:16px;">
+        <p><strong>• Nama Aplikasi:</strong> Desriptive Text Moduline (Edisi Kontekstual Boalemo).</p>
+        <p style="margin-top:6px;"><strong>• Bidang Inovasi:</strong> Multimedia Pembelajaran Interaktif (MPI), Edu-Game Bahasa Inggris, dan Integrasi Kurikulum Berbasis Cinta (KBC) & Deep Learning.</p>
+      </div>
+      <button class="btn btn-primary" style="width:100%;" onclick="toggleDevModal(false)">Tutup Profil</button>
+    </div>
+  </div>
+
+  <script>
+    /* =========================================================================
+       1. KONFIGURASI UMUM, NAVIGASI TAB & PAPAN SKOR KELOMPOK
+       ========================================================================= */
+    // GURU DAPAT MENGGANTI DEFAULT URL DI BAWAH INI DENGAN URL WEB APP GOOGLE APPS SCRIPT:
+    let DEFAULT_GAS_URL = "https://script.google.com/macros/s/AKfycbySth88z32_rpWzVimkxSreAFI612_MZyG9dhATykyO6NRSjvyEM1gS1ZX00gwedKkDxQ/exec";
+
+    let teamScores = [0, 0, 0, 0];
+    let salonStars = 0;
+
+    function toggleDevModal(show) {
+      const modal = document.getElementById('devModal');
+      if (show) modal.classList.add('open');
+      else modal.classList.remove('open');
+    }
+
+    function switchTab(panelId, btnEl) {
+      document.querySelectorAll('.module-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(panelId).classList.add('active');
+      btnEl.classList.add('active');
+    }
+
+    function addTeamScore(idx, points = 10) {
+      teamScores[idx] += points;
+      document.getElementById('score-' + idx).textContent = teamScores[idx];
+      try {
+        localStorage.setItem('moduline_teams', JSON.stringify(teamScores));
+      } catch (e) {}
+    }
+
+    function resetTeamScores() {
+      teamScores = [0, 0, 0, 0];
+      teamScores.forEach((_, idx) => {
+        document.getElementById('score-' + idx).textContent = '0';
+      });
+      try {
+        localStorage.removeItem('moduline_teams');
+      } catch (e) {}
+    }
+
+    function speakText(rawText, rateVal = 0.9) {
+      if (!('speechSynthesis' in window)) {
+        alert('Browser Anda belum mendukung pembaca suara otomatis.');
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(rawText);
+      utter.lang = 'en-US';
+      utter.rate = rateVal;
+      window.speechSynthesis.speak(utter);
+    }
+
+    /* =========================================================================
+       2. MODUL 1: MATERI 4 OBJEK & 40 IMPORTANT VOCABULARIES
+       ========================================================================= */
+    const categoryMaterials = {
+      people: {
+        title: '👤 1. Describing People (Mendeskripsikan Manusia)',
+        guide: `
+          <p style="font-size:0.88rem; margin-bottom:10px;">Saat mendeskripsikan seseorang, kita menjelaskan 2 aspek utama:</p>
+          <ul style="font-size:0.86rem; padding-left:18px; margin-bottom:12px;">
+            <li><strong>Physical Appearance (Ciri Fisik):</strong> Bentuk wajah (<em>oval, round, square</em>), warna kulit (<em>fair, tan, brown</em>), rambut/hijab (<em>curly, wavy, short spiky, neat hijab</em>), mata (<em>big round, calm almond</em>), dan hidung (<em>pointed, flat</em>).</li>
+            <li><strong>Personality / Character (Sifat):</strong> <em>friendly, helpful, patient, diligent, polite</em>.</li>
+            <li><strong>Kaidah Penting:</strong> Gunakan <code>is/am/are + Adjective</code> (<em>She <u>is</u> tall</em>) dan <code>has/have + Noun Phrase</code> (<em>She <u>has</u> an oval face</em>).</li>
+          </ul>
+        `,
+        exampleTitle: 'Contoh Teks Lengkap: "Mrs. Halimah, Our Friendly English Teacher"',
+        exampleHtml: `
+          <strong>[Identification]</strong><br/>
+          Mrs. Halimah <span class="hl-verb">is</span> my favorite English teacher <span class="hl-prep">at</span> MTs Boalemo. She <span class="hl-verb">comes</span> <span class="hl-prep">from</span> Tilamuta.<br/><br/>
+          <strong>[Description]</strong><br/>
+          She <span class="hl-verb">is</span> <span class="hl-adj">tall</span> and <span class="hl-verb">has</span> <span class="hl-adj">tan</span> skin. She <span class="hl-verb">has</span> an <span class="hl-adj">oval</span> face, <span class="hl-adj">calm brown</span> eyes, a <span class="hl-adj">pointed</span> nose, and a <span class="hl-adj">warm gentle</span> smile. Every day, she <span class="hl-verb">wears</span> a <span class="hl-adj">neat tosca</span> hijab and <span class="hl-adj">round</span> glasses. Mrs. Halimah <span class="hl-verb">is</span> very <span class="hl-adj">patient</span> and <span class="hl-adj">helpful</span>.
+        `,
+        ttsRaw: "Mrs. Halimah is my favorite English teacher at MTs Boalemo. She comes from Tilamuta. She is tall and has tan skin. She has an oval face, calm brown eyes, a pointed nose, and a warm gentle smile. Every day, she wears a neat tosca hijab and round glasses. Mrs. Halimah is very patient and helpful."
+      },
+      animals: {
+        title: '🦈 2. Describing Animals (Mendeskripsikan Hewan)',
+        guide: `
+          <p style="font-size:0.88rem; margin-bottom:10px;">Saat mendeskripsikan hewan peliharaan maupun satwa khas lokal, jelaskan:</p>
+          <ul style="font-size:0.86rem; padding-left:18px; margin-bottom:12px;">
+            <li><strong>Habitat & Jenis:</strong> <em>marine animal, mammal, pet, lives in the coastal sea</em>.</li>
+            <li><strong>Body Parts & Size:</strong> <em>huge body, white spots, strong fins, soft fur, long tail</em>.</li>
+            <li><strong>Diet & Behavior:</strong> <em>eats tiny plankton, swims calmly, gentle and harmless</em>.</li>
+          </ul>
+        `,
+        exampleTitle: 'Contoh Teks Lengkap: "Boni, The Gentle Whale Shark of Tomini Bay"',
+        exampleHtml: `
+          <strong>[Identification]</strong><br/>
+          Boni <span class="hl-verb">is</span> a <span class="hl-adj">famous</span> whale shark <span class="hl-prep">in</span> the coastal water of Gorontalo.<br/><br/>
+          <strong>[Description]</strong><br/>
+          It <span class="hl-verb">has</span> a <span class="hl-adj">huge bluish-grey</span> body with <span class="hl-adj">beautiful white</span> spots <span class="hl-prep">on</span> its back. It <span class="hl-verb">has</span> a <span class="hl-adj">wide</span> mouth and <span class="hl-adj">strong</span> fins. Although Boni <span class="hl-verb">is</span> very <span class="hl-adj">large</span>, it <span class="hl-verb">is</span> <span class="hl-adj">gentle</span> and <span class="hl-adj">harmless</span>. It <span class="hl-verb">swims</span> calmly and <span class="hl-verb">eats</span> <span class="hl-adj">tiny</span> plankton.
+        `,
+        ttsRaw: "Boni is a famous whale shark in the coastal water of Gorontalo. It has a huge bluish-grey body with beautiful white spots on its back. It has a wide mouth and strong fins. Although Boni is very large, it is gentle and harmless. It swims calmly and eats tiny plankton."
+      },
+      things: {
+        title: '👜 3. Describing Things (Mendeskripsikan Benda)',
+        guide: `
+          <p style="font-size:0.88rem; margin-bottom:10px;">Saat mendeskripsikan benda atau kerajinan lokal, jelaskan:</p>
+          <ul style="font-size:0.86rem; padding-left:18px; margin-bottom:12px;">
+            <li><strong>Size, Shape & Color:</strong> <em>medium-sized, rectangular, slim, golden, tosca</em>.</li>
+            <li><strong>Material & Parts:</strong> <em>made of canvas / wood / bamboo, has a front pocket, a smooth zipper</em>.</li>
+            <li><strong>Urutan Kata Sifat (Adjective Order):</strong> <em>Opinion/Quality + Size/Shape + Color + Material + Noun</em> (contoh: <code>a strong brown wooden boat</code>).</li>
+          </ul>
+        `,
+        exampleTitle: 'Contoh Teks Lengkap: "My Favorite Karawo Sling Bag"',
+        exampleHtml: `
+          <strong>[Identification]</strong><br/>
+          I <span class="hl-verb">have</span> a <span class="hl-adj">special</span> sling bag. It <span class="hl-verb">is</span> a <span class="hl-adj">traditional</span> <em>Karawo</em> embroidery bag <span class="hl-prep">from</span> Gorontalo.<br/><br/>
+          <strong>[Description]</strong><br/>
+          The bag <span class="hl-verb">is</span> <span class="hl-adj">rectangular</span> and made of <span class="hl-adj">strong tosca</span> canvas fabric. <span class="hl-prep">On</span> the front pocket, it <span class="hl-verb">has</span> <span class="hl-adj">neat golden</span> embroidery with corn motifs. It also <span class="hl-verb">has</span> a <span class="hl-adj">long black</span> strap. I <span class="hl-verb">use</span> it to carry my books to madrasah.
+        `,
+        ttsRaw: "I have a special sling bag. It is a traditional Karawo embroidery bag from Gorontalo. The bag is rectangular and made of strong tosca canvas fabric. On the front pocket, it has neat golden embroidery with corn motifs. It also has a long black strap. I use it to carry my books to madrasah."
+      },
+      places: {
+        title: '🏖️ 4. Describing Places (Mendeskripsikan Tempat)',
+        guide: `
+          <p style="font-size:0.88rem; margin-bottom:10px;">Saat mendeskripsikan tempat wisata, sekolah, atau lingkungan alam, perhatikan:</p>
+          <ul style="font-size:0.86rem; padding-left:18px; margin-bottom:12px;">
+            <li><strong>Location:</strong> <em>located in Boalemo Regency, stretches along Tomini Bay</em>.</li>
+            <li><strong>Scenery & Parts:</strong> <em>clean white sand, clear turquoise water, giant shady pine trees</em>.</li>
+            <li><strong>Atmosphere:</strong> <em>peaceful, cool, refreshing, clean from plastic waste</em>.</li>
+          </ul>
+        `,
+        exampleTitle: 'Contoh Teks Lengkap: "Bolihutuo Beach in Boalemo Regency"',
+        exampleHtml: `
+          <strong>[Identification]</strong><br/>
+          Bolihutuo Beach <span class="hl-verb">is</span> a <span class="hl-adj">popular</span> coastal destination <span class="hl-prep">in</span> Boalemo Regency.<br/><br/>
+          <strong>[Description]</strong><br/>
+          The beach <span class="hl-verb">stretches</span> <span class="hl-prep">along</span> the <span class="hl-adj">calm</span> shore of Tomini Bay. It <span class="hl-verb">has</span> <span class="hl-adj">clean white</span> sand, <span class="hl-adj">clear turquoise</span> water, and rows of <span class="hl-adj">shady</span> pine trees. The atmosphere <span class="hl-verb">is</span> very <span class="hl-adj">peaceful</span> and <span class="hl-adj">refreshing</span>.
+        `,
+        ttsRaw: "Bolihutuo Beach is a popular coastal destination in Boalemo Regency. The beach stretches along the calm shore of Tomini Bay. It has clean white sand, clear turquoise water, and rows of shady pine trees. The atmosphere is very peaceful and refreshing."
+      }
+    };
+
+    function showCategoryMaterial(catKey) {
+      document.querySelectorAll('[id^="pill-cat-"]').forEach(b => b.classList.remove('active'));
+      document.getElementById('pill-cat-' + catKey).classList.add('active');
+      const data = categoryMaterials[catKey];
+      document.getElementById('categoryDetailWrap').innerHTML = `
+        <div class="concept-box" style="background:#f8fafc; border-color:#cbd5e1;">
+          <h4 style="font-size:1.05rem; margin-bottom:10px;">${data.title}</h4>
+          ${data.guide}
+          <div style="font-size:0.78rem; color:var(--slate-muted);">
+            Warna: <span class="hl-verb">Verb</span> • <span class="hl-adj">Adjective</span> • <span class="hl-prep">Preposition</span>
+          </div>
+        </div>
+        <div>
+          <div class="live-text-output">
+            <div style="font-weight:800; color:var(--tosca-dark); margin-bottom:6px;">${data.exampleTitle}</div>
+            ${data.exampleHtml}
+          </div>
+          <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="speakText(\`${data.ttsRaw}\`)">🔊 Dengarkan Contoh Teks</button>
+            <button class="btn btn-outline" onclick="window.speechSynthesis && window.speechSynthesis.cancel()">⏹️ Berhenti</button>
+          </div>
+        </div>
+      `;
+    }
+
+    const vocabList = [
+      { en: 'Oval face', id: 'Wajah oval / lonjong', cat: 'face', label: 'Face & Hair' },
+      { en: 'Round face', id: 'Wajah bulat', cat: 'face', label: 'Face & Hair' },
+      { en: 'Square face', id: 'Wajah persegi / tegas', cat: 'face', label: 'Face & Hair' },
+      { en: 'Fair skin', id: 'Kulit cerah / kuning langsat', cat: 'face', label: 'Face & Hair' },
+      { en: 'Tan skin', id: 'Kulit sawo matang', cat: 'face', label: 'Face & Hair' },
+      { en: 'Curly hair', id: 'Rambut keriting', cat: 'face', label: 'Face & Hair' },
+      { en: 'Wavy hair', id: 'Rambut berombak', cat: 'face', label: 'Face & Hair' },
+      { en: 'Short spiky hair', id: 'Rambut pendek berdiri rapi', cat: 'face', label: 'Face & Hair' },
+      { en: 'Pointed nose', id: 'Hidung mancung', cat: 'face', label: 'Face & Hair' },
+      { en: 'Rosy cheeks', id: 'Pipi kemerahan / merona', cat: 'face', label: 'Face & Hair' },
+      { en: 'Cute freckles', id: 'Bintik-bintik halus di pipi', cat: 'face', label: 'Face & Hair' },
+      { en: 'Thin mustache', id: 'Kumis tipis rapi', cat: 'face', label: 'Face & Hair' },
+      { en: 'Calm almond eyes', id: 'Mata teduh berbentuk almond', cat: 'face', label: 'Face & Hair' },
+      { en: 'Bright smile', id: 'Senyum lebar nan cerah', cat: 'face', label: 'Face & Hair' },
+      { en: 'Tall and slim', id: 'Tinggi dan ramping', cat: 'person', label: 'Body & Character' },
+      { en: 'Medium-height', id: 'Tinggi badan sedang', cat: 'person', label: 'Body & Character' },
+      { en: 'Friendly and warm', id: 'Ramah dan hangat', cat: 'person', label: 'Body & Character' },
+      { en: 'Diligent', id: 'Rajin dan tekun', cat: 'person', label: 'Body & Character' },
+      { en: 'Helpful', id: 'Suka menolong sesama', cat: 'person', label: 'Body & Character' },
+      { en: 'Polite and humble', id: 'Sopan dan rendah hati', cat: 'person', label: 'Body & Character' },
+      { en: 'Patient', id: 'Sabar', cat: 'person', label: 'Body & Character' },
+      { en: 'Cheerful', id: 'Ceria / bersemangat', cat: 'person', label: 'Body & Character' },
+      { en: 'Huge body', id: 'Tubuh yang sangat besar', cat: 'animal', label: 'Animals' },
+      { en: 'White spots', id: 'Totol-totol / bintik putih', cat: 'animal', label: 'Animals' },
+      { en: 'Strong fins', id: 'Sirip yang kuat', cat: 'animal', label: 'Animals' },
+      { en: 'Soft fur', id: 'Bulu halus (mamalia)', cat: 'animal', label: 'Animals' },
+      { en: 'Colorful feathers', id: 'Bulu warna-warni (unggas)', cat: 'animal', label: 'Animals' },
+      { en: 'Gentle and tame', id: 'Lembut dan jinak', cat: 'animal', label: 'Animals' },
+      { en: 'Rectangular', id: 'Berbentuk persegi panjang', cat: 'thing', label: 'Things' },
+      { en: 'Traditional wooden', id: 'Kayu tradisional', cat: 'thing', label: 'Things' },
+      { en: 'Golden embroidery', id: 'Sulaman / bordir benang emas', cat: 'thing', label: 'Things' },
+      { en: 'Lightweight', id: 'Ringan dibawa', cat: 'thing', label: 'Things' },
+      { en: 'Bamboo outriggers', id: 'Cadik penyeimbang dari bambu', cat: 'thing', label: 'Things' },
+      { en: 'Durable and neat', id: 'Awet/kuat dan rapi', cat: 'thing', label: 'Things' },
+      { en: 'Clear turquoise water', id: 'Air laut biru kehijauan jernih', cat: 'place', label: 'Places' },
+      { en: 'Shady pine trees', id: 'Pohon pinus yang rindang', cat: 'place', label: 'Places' },
+      { en: 'Soft white sand', id: 'Pasir putih yang lembut', cat: 'place', label: 'Places' },
+      { en: 'Fertile cornfield', id: 'Ladang jagung yang subur', cat: 'place', label: 'Places' },
+      { en: 'Cool sea breeze', id: 'Angin laut yang sejuk', cat: 'place', label: 'Places' },
+      { en: 'Peaceful and clean', id: 'Tenang/damai dan bersih', cat: 'place', label: 'Places' }
+    ];
+
+    function filterVocab(cat) {
+      document.querySelectorAll('[id^="vpill-"]').forEach(b => b.classList.remove('active'));
+      document.getElementById('vpill-' + cat).classList.add('active');
+      const container = document.getElementById('vocabGridContainer');
+      container.innerHTML = '';
+      const filtered = cat === 'all' ? vocabList : vocabList.filter(v => v.cat === cat);
+      filtered.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'vocab-card';
+        div.onclick = () => speakText(item.en, 0.85);
+        div.innerHTML = `
+          <div>
+            <div class="vocab-en"><span>${item.en}</span><span>🔊</span></div>
+            <div class="vocab-id">${item.id}</div>
+          </div>
+          <div class="vocab-cat-tag">${item.label}</div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    /* =========================================================================
+       3. MODUL 2: BOALEMO STYLE SALON GAME ENGINE
+       ========================================================================= */
+    const salonClients = [
+      {
+        id: 0,
+        name: 'Pelanggan 1: Raka (Siswa Baru MTs Tilamuta)',
+        orderHtml: `"Hello Stylist! I am <strong>Raka</strong> from Tilamuta. Please style my look for my school photo! I have an <span class="hl-adj">oval face</span> and <span class="hl-adj">tan skin</span>. I want <span class="hl-adj">short spiky black hair</span>, <span class="hl-adj">big round eyes</span>, a <span class="hl-adj">pointed nose</span>, a <span class="hl-adj">wide bright smile</span>, and <span class="hl-adj">square glasses</span>."`,
+        tts: "Hello Stylist! I am Raka from Tilamuta. Please style my look for my school photo! I have an oval face and tan skin. I want short spiky black hair, big round eyes, a pointed nose, a wide bright smile, and square glasses.",
+        target: { faceShape: 'oval', skinTone: 'tan', hairStyle: 'short_spiky', eyeStyle: 'big_round', faceFeature: 'pointed_nose', mouthStyle: 'bright_smile', accessory: 'square_glasses' }
+      },
+      {
+        id: 1,
+        name: 'Pelanggan 2: Aisyah (Duta Literasi Bolihutuo)',
+        orderHtml: `"Assalamu'alaikum Stylist! I am <strong>Aisyah</strong>. I have a <span class="hl-adj">round face</span> and <span class="hl-adj">fair skin</span>. Please style me with a <span class="hl-adj">neat tosca hijab</span>, <span class="hl-adj">calm almond eyes</span>, <span class="hl-adj">rosy cheeks</span>, a <span class="hl-adj">warm gentle smile</span>, and <span class="hl-adj">round glasses</span>."`,
+        tts: "Assalamu'alaikum Stylist! I am Aisyah. I have a round face and fair skin. Please style me with a neat tosca hijab, calm almond eyes, rosy cheeks, a warm gentle smile, and round glasses.",
+        target: { faceShape: 'round', skinTone: 'fair', hairStyle: 'hijab_tosca', eyeStyle: 'almond_brown', faceFeature: 'rosy_cheeks', mouthStyle: 'gentle_smile', accessory: 'round_glasses' }
+      },
+      {
+        id: 2,
+        name: 'Pelanggan 3: Ustaz Farhan (Guru Muda Madrasah)',
+        orderHtml: `"Good morning! I am <strong>Ustaz Farhan</strong>. I have a <span class="hl-adj">square face</span> and <span class="hl-adj">tan skin</span>. I always wear a <span class="hl-adj">black kopiah</span>. I have <span class="hl-adj">calm almond eyes</span>, a <span class="hl-adj">thin mustache</span>, a <span class="hl-adj">polite small smile</span>, and <span class="hl-adj">no glasses</span>."`,
+        tts: "Good morning! I am Ustaz Farhan. I have a square face and tan skin. I always wear a black kopiah. I have calm almond eyes, a thin mustache, a polite small smile, and no glasses.",
+        target: { faceShape: 'square', skinTone: 'tan', hairStyle: 'kopiah_black', eyeStyle: 'almond_brown', faceFeature: 'thin_mustache', mouthStyle: 'small_polite', accessory: 'none' }
+      },
+      {
+        id: 3,
+        name: 'Pelanggan 4: Nadia (Vlogger Wisata Pulo Cinta)',
+        orderHtml: `"Hi Stylist! I am <strong>Nadia</strong>, a travel vlogger in Tomini Bay. I have an <span class="hl-adj">oval face</span> and <span class="hl-adj">brown skin</span>. Please give me a <span class="hl-adj">golden hijab</span>, <span class="hl-adj">cheerful eyes</span>, <span class="hl-adj">cute freckles</span>, a <span class="hl-adj">wide bright smile</span>, and cool <span class="hl-adj">sunglasses</span>!"`,
+        tts: "Hi Stylist! I am Nadia, a travel vlogger in Tomini Bay. I have an oval face and brown skin. Please give me a golden hijab, cheerful eyes, cute freckles, a wide bright smile, and cool sunglasses!",
+        target: { faceShape: 'oval', skinTone: 'brown', hairStyle: 'hijab_gold', eyeStyle: 'cheerful_wink', faceFeature: 'freckles', mouthStyle: 'bright_smile', accessory: 'sunglasses' }
+      },
+      {
+        id: 4,
+        name: '🎨 Mode Kreasi Bebas (Free Salon Sandbox)',
+        orderHtml: `"Dalam <strong>Mode Kreasi Bebas</strong> ini, kamu bebas merancang wajah tokoh imajinasimu sendiri dan mempelajari perubahan kalimat bahasa Inggrisnya secara langsung!"`,
+        tts: "Welcome to Free Salon Mode! Create any face you like and read the English description below the mirror.",
+        target: null
+      }
+    ];
+
+    let currentClientIdx = 0;
+    let currentSalonState = {
+      faceShape: 'round',
+      skinTone: 'fair',
+      hairStyle: 'curly_black',
+      eyeStyle: 'almond_brown',
+      faceFeature: 'rosy_cheeks',
+      mouthStyle: 'gentle_smile',
+      accessory: 'none'
+    };
+
+    const traitLabels = {
+      faceShape: { oval: 'an oval face', round: 'a round face', square: 'a square face' },
+      skinTone: { fair: 'fair skin', tan: 'tan skin', brown: 'warm brown skin' },
+      hairStyle: {
+        short_spiky: 'short spiky black hair',
+        curly_black: 'curly black hair',
+        wavy_long: 'long wavy black hair',
+        hijab_tosca: 'a neat tosca hijab',
+        hijab_gold: 'an elegant golden hijab',
+        kopiah_black: 'a traditional black kopiah'
+      },
+      eyeStyle: { big_round: 'big round eyes', almond_brown: 'calm almond eyes', cheerful_wink: 'cheerful smiling eyes' },
+      faceFeature: { pointed_nose: 'a pointed nose', rosy_cheeks: 'a cute nose with rosy cheeks', freckles: 'a small nose with cute freckles', thin_mustache: 'a pointed nose and a neat thin mustache' },
+      mouthStyle: { bright_smile: 'a wide bright smile', gentle_smile: 'a warm gentle smile', small_polite: 'a polite small smile' },
+      accessory: { none: 'no glasses', round_glasses: 'round reading glasses', square_glasses: 'black square glasses', sunglasses: 'cool coastal sunglasses' }
+    };
+
+    function loadSalonClient(idx) {
+      currentClientIdx = idx;
+      document.querySelectorAll('[id^="cbtn-"]').forEach(b => b.classList.remove('active'));
+      document.getElementById('cbtn-' + idx).classList.add('active');
+      const client = salonClients[idx];
+      document.getElementById('clientTitleBadge').textContent = client.name.toUpperCase();
+      document.getElementById('clientOrderText').innerHTML = client.orderHtml;
+      const fbBox = document.getElementById('salonFeedbackBox');
+      fbBox.className = 'salon-result-box';
+      fbBox.innerHTML = '';
+      renderSalonAvatar();
+    }
+
+    function setTrait(category, value) {
+      currentSalonState[category] = value;
+      renderSalonAvatar();
+    }
+
+    function randomizeSalonFace() {
+      const keys = {
+        faceShape: ['oval', 'round', 'square'],
+        skinTone: ['fair', 'tan', 'brown'],
+        hairStyle: ['short_spiky', 'curly_black', 'wavy_long', 'hijab_tosca', 'hijab_gold', 'kopiah_black'],
+        eyeStyle: ['big_round', 'almond_brown', 'cheerful_wink'],
+        faceFeature: ['pointed_nose', 'rosy_cheeks', 'freckles', 'thin_mustache'],
+        mouthStyle: ['bright_smile', 'gentle_smile', 'small_polite'],
+        accessory: ['none', 'round_glasses', 'square_glasses', 'sunglasses']
+      };
+      Object.keys(keys).forEach(k => {
+        const arr = keys[k];
+        currentSalonState[k] = arr[Math.floor(Math.random() * arr.length)];
+      });
+      renderSalonAvatar();
+    }
+
+    function renderSalonAvatar() {
+      document.querySelectorAll('.trait-btn').forEach(btn => {
+        const t = btn.getAttribute('data-trait');
+        const v = btn.getAttribute('data-val');
+        if (currentSalonState[t] === v) btn.classList.add('active');
+        else btn.classList.remove('active');
+      });
+
+      const skinColors = { fair: '#fde2c4', tan: '#eab676', brown: '#b97a45' };
+      const skinHex = skinColors[currentSalonState.skinTone] || '#eab676';
+      document.getElementById('svgNeck').setAttribute('fill', skinHex);
+      document.getElementById('svgEarL').setAttribute('fill', skinHex);
+      document.getElementById('svgEarR').setAttribute('fill', skinHex);
+
+      const faceBase = document.getElementById('svgFaceBase');
+      if (currentSalonState.faceShape === 'oval') {
+        faceBase.innerHTML = `<ellipse cx="160" cy="172" rx="76" ry="92" fill="${skinHex}" stroke="#9a6b43" stroke-width="2" />`;
+      } else if (currentSalonState.faceShape === 'round') {
+        faceBase.innerHTML = `<circle cx="160" cy="175" r="84" fill="${skinHex}" stroke="#9a6b43" stroke-width="2" />`;
+      } else {
+        faceBase.innerHTML = `<rect x="82" y="86" width="156" height="174" rx="34" fill="${skinHex}" stroke="#9a6b43" stroke-width="2" />`;
+      }
+
+      const eyesLayer = document.getElementById('svgEyesLayer');
+      const brows = `
+        <path d="M110 142 Q125 134 142 140" stroke="#1e293b" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M178 140 Q195 134 210 142" stroke="#1e293b" stroke-width="4" fill="none" stroke-linecap="round"/>
+      `;
+      if (currentSalonState.eyeStyle === 'big_round') {
+        eyesLayer.innerHTML = brows + `
+          <circle cx="126" cy="160" r="13" fill="#ffffff" stroke="#1e293b" stroke-width="2"/><circle cx="126" cy="160" r="7" fill="#1e293b"/><circle cx="123" cy="157" r="2.8" fill="#ffffff"/>
+          <circle cx="194" cy="160" r="13" fill="#ffffff" stroke="#1e293b" stroke-width="2"/><circle cx="194" cy="160" r="7" fill="#1e293b"/><circle cx="191" cy="157" r="2.8" fill="#ffffff"/>
+        `;
+      } else if (currentSalonState.eyeStyle === 'almond_brown') {
+        eyesLayer.innerHTML = brows + `
+          <ellipse cx="126" cy="160" rx="14" ry="8.5" fill="#ffffff" stroke="#1e293b" stroke-width="2"/><circle cx="126" cy="160" r="6" fill="#451a03"/>
+          <ellipse cx="194" cy="160" rx="14" ry="8.5" fill="#ffffff" stroke="#1e293b" stroke-width="2"/><circle cx="194" cy="160" r="6" fill="#451a03"/>
+        `;
+      } else {
+        eyesLayer.innerHTML = brows + `
+          <path d="M112 162 Q126 146 140 162" stroke="#1e293b" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path d="M180 162 Q194 146 208 162" stroke="#1e293b" stroke-width="4" fill="none" stroke-linecap="round"/>
+        `;
+      }
+
+      const noseLayer = document.getElementById('svgNoseLayer');
+      if (currentSalonState.faceFeature === 'pointed_nose') {
+        noseLayer.innerHTML = `<path d="M160 162 L152 194 L166 196" stroke="#7c4a27" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+      } else if (currentSalonState.faceFeature === 'rosy_cheeks') {
+        noseLayer.innerHTML = `
+          <path d="M155 186 Q160 194 165 186" stroke="#7c4a27" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <ellipse cx="106" cy="186" rx="14" ry="8" fill="#fb7185" opacity="0.45"/><ellipse cx="214" cy="186" rx="14" ry="8" fill="#fb7185" opacity="0.45"/>
+        `;
+      } else if (currentSalonState.faceFeature === 'freckles') {
+        noseLayer.innerHTML = `
+          <path d="M156 184 Q160 193 164 184" stroke="#7c4a27" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <circle cx="105" cy="182" r="2" fill="#78350f"/><circle cx="113" cy="186" r="2" fill="#78350f"/><circle cx="102" cy="190" r="2" fill="#78350f"/>
+          <circle cx="215" cy="182" r="2" fill="#78350f"/><circle cx="207" cy="186" r="2" fill="#78350f"/><circle cx="218" cy="190" r="2" fill="#78350f"/>
+        `;
+      } else {
+        noseLayer.innerHTML = `
+          <path d="M160 162 L153 192 L166 194" stroke="#7c4a27" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M134 207 Q160 198 186 207" stroke="#1e293b" stroke-width="5" fill="none" stroke-linecap="round"/>
+        `;
+      }
+
+      const mouthLayer = document.getElementById('svgMouthLayer');
+      if (currentSalonState.mouthStyle === 'bright_smile') {
+        mouthLayer.innerHTML = `<path d="M132 214 Q160 242 188 214 Z" fill="#ffffff" stroke="#be123c" stroke-width="3"/>`;
+      } else if (currentSalonState.mouthStyle === 'gentle_smile') {
+        mouthLayer.innerHTML = `<path d="M136 216 Q160 234 184 216" stroke="#be123c" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+      } else {
+        mouthLayer.innerHTML = `<path d="M145 218 Q160 226 175 218" stroke="#9f1239" stroke-width="3.5" fill="none" stroke-linecap="round"/>`;
+      }
+
+      const glassesLayer = document.getElementById('svgGlassesLayer');
+      if (currentSalonState.accessory === 'none') {
+        glassesLayer.innerHTML = '';
+      } else if (currentSalonState.accessory === 'round_glasses') {
+        glassesLayer.innerHTML = `
+          <circle cx="126" cy="160" r="21" fill="none" stroke="#b45309" stroke-width="3.5"/>
+          <circle cx="194" cy="160" r="21" fill="none" stroke="#b45309" stroke-width="3.5"/>
+          <line x1="147" y1="160" x2="173" y2="160" stroke="#b45309" stroke-width="3.5"/>
+        `;
+      } else if (currentSalonState.accessory === 'square_glasses') {
+        glassesLayer.innerHTML = `
+          <rect x="102" y="143" width="46" height="32" rx="5" fill="none" stroke="#0f172a" stroke-width="4"/>
+          <rect x="172" y="143" width="46" height="32" rx="5" fill="none" stroke="#0f172a" stroke-width="4"/>
+          <line x1="148" y1="158" x2="172" y2="158" stroke="#0f172a" stroke-width="4"/>
+        `;
+      } else {
+        glassesLayer.innerHTML = `
+          <rect x="100" y="142" width="48" height="33" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="3"/>
+          <rect x="172" y="142" width="48" height="33" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="3"/>
+          <line x1="148" y1="156" x2="172" y2="156" stroke="#f59e0b" stroke-width="3.5"/>
+        `;
+      }
+
+      const backHair = document.getElementById('svgBackHair');
+      const topHair = document.getElementById('svgTopHairLayer');
+      backHair.innerHTML = '';
+      topHair.innerHTML = '';
+
+      if (currentSalonState.hairStyle === 'short_spiky') {
+        topHair.innerHTML = `<path d="M80 140 Q85 80 120 75 L135 58 L155 72 L175 55 L192 74 L215 65 Q240 90 240 140 Q200 100 160 102 Q115 100 80 140 Z" fill="#0f172a"/>`;
+      } else if (currentSalonState.hairStyle === 'curly_black') {
+        topHair.innerHTML = `
+          <circle cx="95" cy="110" r="24" fill="#1e293b"/><circle cx="120" cy="85" r="26" fill="#1e293b"/>
+          <circle cx="160" cy="78" r="28" fill="#1e293b"/><circle cx="200" cy="85" r="26" fill="#1e293b"/><circle cx="225" cy="110" r="24" fill="#1e293b"/>
+        `;
+      } else if (currentSalonState.hairStyle === 'wavy_long') {
+        backHair.innerHTML = `<path d="M70 130 Q50 220 75 295 L245 295 Q270 220 250 130 Z" fill="#1e293b"/>`;
+        topHair.innerHTML = `<path d="M76 145 Q90 70 160 70 Q230 70 244 145 Q200 98 160 102 Q115 98 76 145 Z" fill="#1e293b"/>`;
+      } else if (currentSalonState.hairStyle === 'hijab_tosca') {
+        backHair.innerHTML = `<path d="M62 155 Q55 265 80 315 L240 315 Q265 265 258 155 Q255 60 160 60 Q65 60 62 155 Z" fill="#0d9488"/>`;
+        topHair.innerHTML = `
+          <path d="M74 145 Q160 80 246 145 Q255 62 160 62 Q65 62 74 145 Z" fill="#115e59"/>
+          <path d="M72 230 Q160 295 248 230 L238 312 L82 312 Z" fill="#0d9488"/>
+        `;
+      } else if (currentSalonState.hairStyle === 'hijab_gold') {
+        backHair.innerHTML = `<path d="M62 155 Q55 265 80 315 L240 315 Q265 265 258 155 Q255 60 160 60 Q65 60 62 155 Z" fill="#f59e0b"/>`;
+        topHair.innerHTML = `
+          <path d="M74 145 Q160 80 246 145 Q255 62 160 62 Q65 62 74 145 Z" fill="#d97706"/>
+          <path d="M72 230 Q160 295 248 230 L238 312 L82 312 Z" fill="#f59e0b"/>
+        `;
+      } else if (currentSalonState.hairStyle === 'kopiah_black') {
+        topHair.innerHTML = `
+          <path d="M84 122 L92 68 Q160 55 228 68 L236 122 Q160 110 84 122 Z" fill="#0f172a" stroke="#f59e0b" stroke-width="2.5"/>
+          <line x1="102" y1="95" x2="218" y2="95" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,4"/>
+        `;
+      }
+
+      const fShape = traitLabels.faceShape[currentSalonState.faceShape];
+      const sTone = traitLabels.skinTone[currentSalonState.skinTone];
+      const hStyle = traitLabels.hairStyle[currentSalonState.hairStyle];
+      const eStyle = traitLabels.eyeStyle[currentSalonState.eyeStyle];
+      const fFeat = traitLabels.faceFeature[currentSalonState.faceFeature];
+      const mStyle = traitLabels.mouthStyle[currentSalonState.mouthStyle];
+      const acc = traitLabels.accessory[currentSalonState.accessory];
+
+      document.getElementById('liveSalonDescriptionText').innerHTML = `
+        This person <span class="hl-verb">has</span> <span class="hl-adj">${fShape}</span> and <span class="hl-adj">${sTone}</span>.
+        For the head style, the client <span class="hl-verb">has/wears</span> <span class="hl-adj">${hStyle}</span>.
+        In addition, the client <span class="hl-verb">has</span> <span class="hl-adj">${eStyle}</span>, <span class="hl-adj">${fFeat}</span>,
+        and <span class="hl-adj">${mStyle}</span> with <span class="hl-adj">${acc}</span>.
+      `;
+    }
+
+    function speakClientOrder() {
+      speakText(salonClients[currentClientIdx].tts, 0.88);
+    }
+
+    function speakLiveSalonDescription() {
+      speakText(document.getElementById('liveSalonDescriptionText').innerText, 0.9);
+    }
+
+    function checkSalonMatch() {
+      const client = salonClients[currentClientIdx];
+      const fbBox = document.getElementById('salonFeedbackBox');
+      if (!client.target) {
+        fbBox.className = 'salon-result-box match';
+        fbBox.innerHTML = `<strong>🎨 Mode Kreasi Bebas Aktif!</strong> Wajah sudah tampil di cermin dan deskripsi bahasa Inggrisnya dapat kamu baca di bawah cermin.`;
+        return;
+      }
+
+      const traitNamesID = {
+        faceShape: 'Face Shape', skinTone: 'Skin Tone', hairStyle: 'Hair/Hijab/Kopiah',
+        eyeStyle: 'Eye Shape', faceFeature: 'Nose & Feature', mouthStyle: 'Smile', accessory: 'Glasses'
+      };
+
+      let mismatches = [];
+      Object.keys(client.target).forEach(k => {
+        if (currentSalonState[k] !== client.target[k]) {
+          mismatches.push(`<li><strong>${traitNamesID[k]}:</strong> Diminta <code>"${traitLabels[k][client.target[k]]}"</code>, pilihanmu <code>"${traitLabels[k][currentSalonState[k]]}"</code>.</li>`);
+        }
+      });
+
+      if (mismatches.length === 0) {
+        salonStars++;
+        document.getElementById('salonStarCount').textContent = salonStars;
+        fbBox.className = 'salon-result-box match';
+        fbBox.innerHTML = `<strong>🎉 SEMPURNA! 100% SESUAI INSTRUKSI PELANGGAN (+1 Bintang Salon ⭐)</strong>`;
+        updateLiveMatrix();
+      } else {
+        fbBox.className = 'salon-result-box mismatch';
+        fbBox.innerHTML = `<strong>💡 Masih ada ${mismatches.length} bagian yang perlu disesuaikan:</strong><ul style="margin-top:6px; padding-left:20px; font-size:0.85rem;">${mismatches.join('')}</ul>`;
+      }
+    }
+
+    /* =========================================================================
+       4. MODUL 3: SIMULATOR ALAM BOALEMO, SORTER & WRITING STUDIO
+       ========================================================================= */
+    let currentSimObject = 'beach';
+
+    function setSimObject(objKey) {
+      currentSimObject = objKey;
+      document.querySelectorAll('[id^="btn-obj-"]').forEach(b => b.classList.remove('active'));
+      document.getElementById('btn-obj-' + objKey).classList.add('active');
+      updateSimulator();
+    }
+
+    function updateSimulator() {
+      const timeVal = parseInt(document.getElementById('timeSlider').value, 10);
+      const windVal = parseInt(document.getElementById('windSlider').value, 10);
+
+      let timeText = timeVal === 1 ? 'Bright Morning' : (timeVal === 2 ? 'Sunny Noon' : 'Golden Sunset');
+      let skyColor = timeVal === 1 ? '#38bdf8' : (timeVal === 2 ? '#0284c7' : '#f97316');
+      let sunY = timeVal === 1 ? 65 : (timeVal === 2 ? 40 : 140);
+
+      document.getElementById('timeLabel').textContent = timeText;
+      document.getElementById('svgSky').setAttribute('fill', skyColor);
+      document.getElementById('svgSun').setAttribute('cy', sunY);
+
+      let windText = windVal === 1 ? 'Calm & Peaceful' : (windVal === 2 ? 'Cool & Breezy' : 'Lively & Dynamic');
+      document.getElementById('windLabel').textContent = windText;
+
+      document.getElementById('groupBeach').style.display = currentSimObject === 'beach' ? 'block' : 'none';
+      document.getElementById('groupFarm').style.display = currentSimObject === 'farm' ? 'block' : 'none';
+      document.getElementById('groupBoat').style.display = (currentSimObject === 'beach' || currentSimObject === 'boat') ? 'block' : 'none';
+
+      const adjSky = timeVal === 1 ? 'bright blue' : (timeVal === 2 ? 'clear midday' : 'golden sunset');
+      const adjCond = windVal === 1 ? 'calm and peaceful' : (windVal === 2 ? 'cool and breezy' : 'lively and rolling');
+
+      if (currentSimObject === 'beach') {
+        document.getElementById('simParagraph').innerHTML = `
+          <strong>[Describing Place: Bolihutuo Beach]</strong><br/>
+          Bolihutuo Beach <span class="hl-verb">is</span> a <span class="hl-adj">famous</span> coastal park <span class="hl-prep">in</span> Boalemo.
+          <span class="hl-prep">Under</span> the <span class="hl-adj">${adjSky}</span> sky, the sea water <span class="hl-verb">is</span> <span class="hl-adj">${adjCond}</span>.
+          Tall pine trees <span class="hl-verb">grow</span> <span class="hl-prep">along</span> the <span class="hl-adj">white</span> sand.
+        `;
+      } else if (currentSimObject === 'farm') {
+        document.getElementById('simParagraph').innerHTML = `
+          <strong>[Describing Place: Tilamuta Cornfield]</strong><br/>
+          Tilamuta Cornfield <span class="hl-verb">is</span> a <span class="hl-adj">fertile</span> farming area <span class="hl-prep">in</span> Boalemo.
+          <span class="hl-prep">In</span> the <span class="hl-adj">${adjSky}</span> light, the atmosphere <span class="hl-verb">feels</span> <span class="hl-adj">${adjCond}</span>.
+          Thousands of corn plants <span class="hl-verb">produce</span> <span class="hl-adj">sweet yellow</span> corn.
+        `;
+      } else {
+        document.getElementById('simParagraph').innerHTML = `
+          <strong>[Describing Thing: Katinting Boat]</strong><br/>
+          <em>Katinting</em> <span class="hl-verb">is</span> a <span class="hl-adj">traditional wooden</span> boat.
+          It <span class="hl-verb">has</span> a <span class="hl-adj">slim brown</span> hull and two <span class="hl-adj">bamboo</span> outriggers.
+          <span class="hl-prep">Under</span> the <span class="hl-adj">${adjSky}</span> sky, it <span class="hl-verb">sails</span> across the <span class="hl-adj">${adjCond}</span> sea.
+        `;
+      }
+
+      document.getElementById('simReasoningBox').innerHTML = `
+        <strong>🔍 Analisis Kosakata Real-Time:</strong> Perubahan slider otomatis mengganti kata sifat menjadi <code>"${adjSky}"</code> dan <code>"${adjCond}"</code>.
+      `;
+    }
+
+    const sortData = [
+      { ans: 'ID', ok: '✅ Benar! Kalimat ini adalah Identification (pengenalan umum).', no: '💡 Kalimat ini baru memperkenalkan siapa Boni secara umum (Identification).' },
+      { ans: 'DESC', ok: '✅ Tepat! Rincian warna dan bintik tubuh termasuk Description.', no: '💡 Ada rincian fisik "huge bluish-grey body" yang merupakan bagian Description.' },
+      { ans: 'DESC', ok: '✅ Hebat! Rincian bentuk wajah dan mata termasuk Description.', no: '💡 Rincian ciri fisik wajah termasuk bagian Description.' }
+    ];
+
+    function checkSort(idx, choice) {
+      const fb = document.getElementById('sort-fb-' + idx);
+      fb.className = choice === sortData[idx].ans ? 'feedback-inline correct' : 'feedback-inline wrong';
+      fb.textContent = choice === sortData[idx].ans ? sortData[idx].ok : sortData[idx].no;
+    }
+
+    function buildStudentParagraph() {
+      const s = document.getElementById('wrSubject').value.trim() || 'My Friend';
+      const l = document.getElementById('wrLocation').value.trim() || 'a student in Boalemo';
+      const f = document.getElementById('wrFeatures').value.trim() || 'an oval face and a warm smile';
+      const a = document.getElementById('wrActivity').value.trim() || 'studies diligently every day';
+
+      document.getElementById('studentWritingOutput').innerHTML = `
+        <strong>${s}</strong><br/>
+        <strong>[Identification]</strong> ${s} <span class="hl-verb">is</span> ${l}.<br/>
+        <strong>[Description]</strong> He/She/It <span class="hl-verb">has</span> ${f}. Every day, he/she/it <span class="hl-verb">${a}</span>.
+      `;
+    }
+
+    function speakStudentWriting() {
+      speakText(document.getElementById('studentWritingOutput').innerText.replace(/\[Identification\]|\[Description\]/g, ''), 0.9);
+    }
+
+    /* =========================================================================
+       5. ENGINE EVALUASI 10 SOAL HOTS MULTI-FORMAT & ANALISIS BUTIR SOAL
+       ========================================================================= */
+    // Menyimpan skor tiap butir soal (0 atau 10) dan rekaman jawaban murid
+    let itemScores = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0 };
+    let itemAnswers = { 1: '-', 2: '-', 3: '-', 4: '-', 5: '-', 6: '-', 7: '-', 8: '-', 9: '-', 10: '-' };
+
+    // SOAL 1 - 3: HOTS MULTIPLE CHOICE
+    function gradeMC(qNum, letter, isCorrect, btnEl, explanation) {
+      const parent = document.getElementById(`q${qNum}-opts`);
+      parent.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected-correct', 'selected-wrong'));
+
+      itemScores[qNum] = isCorrect ? 10 : 0;
+      itemAnswers[qNum] = letter;
+      document.getElementById(`pts-${qNum}`).textContent = itemScores[qNum];
+
+      const fb = document.getElementById(`fb-q${qNum}`);
+      if (isCorrect) {
+        btnEl.classList.add('selected-correct');
+        fb.className = 'feedback-inline correct';
+        fb.innerHTML = `<strong>🎯 Analisis HOTS (+10 Poin):</strong> ${explanation}`;
+      } else {
+        btnEl.classList.add('selected-wrong');
+        fb.className = 'feedback-inline wrong';
+        fb.innerHTML = `<strong>💡 Panduan Penalaran (0 Poin):</strong> ${explanation}`;
+      }
+      updateLiveMatrix();
+    }
+
+    // SOAL 4: MATCHING DROPDOWN (LINKING VERBS & ACTIONS)
+    function gradeQ4() {
+      const a1 = document.getElementById('q4-s1').value;
+      const a2 = document.getElementById('q4-s2').value;
+      const a3 = document.getElementById('q4-s3').value;
+      const a4 = document.getElementById('q4-s4').value;
+
+      itemAnswers[4] = `${a1||'?'}|${a2||'?'}|${a3||'?'}|${a4||'?'}`;
+      const ok = (a1 === 'is' && a2 === 'has' && a3 === 'wears' && a4 === 'are');
+      itemScores[4] = ok ? 10 : 0;
+      document.getElementById('pts-4').textContent = itemScores[4];
+
+      const fb = document.getElementById('fb-q4');
+      if (ok) {
+        fb.className = 'feedback-inline correct';
+        fb.innerHTML = `<strong>🎯 Sempurna (+10 Poin)!</strong> Kamu membedakan penggunaan <code>is</code> (diikuti kata sifat), <code>has</code> (kepemilikan tunggal), <code>wears</code> (aksi memakai), dan <code>are</code> (subjek jamak <em>students</em>) dengan sangat akurat!`;
+      } else {
+        fb.className = 'feedback-inline wrong';
+        fb.innerHTML = `<strong>💡 Mari Periksa Kembali:</strong> Ingat rumusnya: (1) <em>polite & patient</em> adalah Adjective -> <code>is</code>; (2) <em>a square face</em> adalah kepemilikan bagian tubuh -> <code>has</code>; (3) <em>black kopiah</em> adalah pakaian yang dikenakan -> <code>wears</code>; (4) <em>All students</em> adalah jamak -> <code>are</code>.`;
+      }
+      updateLiveMatrix();
+    }
+
+    // SOAL 5: MATCHING DROPDOWN (4 OBJEK LOKAL)
+    function gradeQ5() {
+      const a1 = document.getElementById('q5-s1').value;
+      const a2 = document.getElementById('q5-s2').value;
+      const a3 = document.getElementById('q5-s3').value;
+      const a4 = document.getElementById('q5-s4').value;
+
+      itemAnswers[5] = `${a1||'?'}|${a2||'?'}|${a3||'?'}|${a4||'?'}`;
+      const ok = (a1 === 'bag' && a2 === 'boat' && a3 === 'tree' && a4 === 'sea');
+      itemScores[5] = ok ? 10 : 0;
+      document.getElementById('pts-5').textContent = itemScores[5];
+
+      const fb = document.getElementById('fb-q5');
+      if (ok) {
+        fb.className = 'feedback-inline correct';
+        fb.innerHTML = `<strong>🎯 Luar Biasa (+10 Poin)!</strong> Keempat objek khas Boalemo & Gorontalo berhasil dipasangkan dengan frasa kata sifat bahan, bentuk, dan warnanya secara tepat!`;
+      } else {
+        fb.className = 'feedback-inline wrong';
+        fb.innerHTML = `<strong>💡 Panduan Penalaran:</strong> Perhatikan kata kuncinya: <em>Karawo Bag</em> -> <code>canvas with golden embroidery</code>; <em>Katinting</em> -> <code>wooden hull with bamboo outriggers</code>; <em>Pine Trees</em> -> <code>giant and shady</code>; <em>Tomini Sea</em> -> <code>clear turquoise water</code>.`;
+      }
+      updateLiveMatrix();
+    }
+
+    // SOAL 6: TAP-TO-ARRANGE WORD CHIPS (ADJECTIVE ORDER)
+    const q6WordsSource = ['The fisherman', 'has', 'a', 'strong', 'brown', 'wooden', 'boat'];
+    let q6BankArr = [];
+    let q6TargetArr = [];
+
+    function initQ6() {
+      q6BankArr = ['wooden', 'The fisherman', 'brown', 'boat', 'has', 'strong', 'a'];
+      q6TargetArr = [];
+      renderQ6Chips();
+    }
+
+    function renderQ6Chips() {
+      const tBox = document.getElementById('q6-target');
+      const bBox = document.getElementById('q6-bank');
+      tBox.innerHTML = '';
+      bBox.innerHTML = '';
+
+      q6TargetArr.forEach((w, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'word-chip placed';
+        btn.textContent = w;
+        btn.onclick = () => {
+          q6TargetArr.splice(idx, 1);
+          q6BankArr.push(w);
+          renderQ6Chips();
+        };
+        tBox.appendChild(btn);
+      });
+
+      q6BankArr.forEach((w, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'word-chip';
+        btn.textContent = w;
+        btn.onclick = () => {
+          q6BankArr.splice(idx, 1);
+          q6TargetArr.push(w);
+          renderQ6Chips();
+        };
+        bBox.appendChild(btn);
+      });
+    }
+
+    function gradeQ6() {
+      const formed = q6TargetArr.join(' ');
+      const expected = q6WordsSource.join(' ');
+      itemAnswers[6] = formed || '-';
+      const ok = (formed === expected);
+      itemScores[6] = ok ? 10 : 0;
+      document.getElementById('pts-6').textContent = itemScores[6];
+
+      const fb = document.getElementById('fb-q6');
+      if (ok) {
+        fb.className = 'feedback-inline correct';
+        fb.innerHTML = `<strong>🎯 Tepat Sekali (+10 Poin)!</strong> Kalimat <em>"The fisherman has a strong brown wooden boat"</em> mengikuti kaidah Adjective Order: Quality (<code>strong</code>) + Color (<code>brown</code>) + Material (<code>wooden</code>) + Noun (<code>boat</code>).`;
+      } else {
+        fb.className = 'feedback-inline wrong';
+        fb.innerHTML = `<strong>💡 belum Tepat:</strong> Urutan yang benar adalah: <code>The fisherman</code> + <code>has</code> + <code>a</code> + <code>strong</code> (kualitas) + <code>brown</code> (warna) + <code>wooden</code> (bahan) + <code>boat</code> (benda).`;
+      }
+      updateLiveMatrix();
+    }
+
+    // SOAL 7: TAP-TO-ARRANGE PARAGRAPH SENTENCES
+    const q7CorrectOrder = [
+      '1. Pulo Cinta is a famous eco-resort island in Tomini Bay, Boalemo Regency.',
+      '2. From above, the white sandy island looks like a romantic heart shape.',
+      '3. Wooden cottages stand above the shallow turquoise water connected by a bridge.',
+      '4. The resort uses clean solar energy to protect the marine environment.'
+    ];
+    let q7BankArr = [];
+    let q7TargetArr = [];
+
+    function initQ7() {
+      q7BankArr = [
+        { code: 'C', text: 'Wooden cottages stand above the shallow turquoise water connected by a bridge.' },
+        { code: 'A', text: 'Pulo Cinta is a famous eco-resort island in Tomini Bay, Boalemo Regency.' },
+        { code: 'D', text: 'The resort uses clean solar energy to protect the marine environment.' },
+        { code: 'B', text: 'From above, the white sandy island looks like a romantic heart shape.' }
+      ];
+      q7TargetArr = [];
+      renderQ7Chips();
+    }
+
+    function renderQ7Chips() {
+      const tBox = document.getElementById('q7-target');
+      const bBox = document.getElementById('q7-bank');
+      tBox.innerHTML = '';
+      bBox.innerHTML = '';
+
+      q7TargetArr.forEach((obj, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'word-chip placed';
+        btn.style.textAlign = 'left';
+        btn.textContent = `(${idx + 1}) [${obj.code}] ${obj.text}`;
+        btn.onclick = () => {
+          q7TargetArr.splice(idx, 1);
+          q7BankArr.push(obj);
+          renderQ7Chips();
+        };
+        tBox.appendChild(btn);
+      });
+
+      q7BankArr.forEach((obj, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'word-chip';
+        btn.style.textAlign = 'left';
+        btn.textContent = `[Kalimat ${obj.code}] ${obj.text}`;
+        btn.onclick = () => {
+          q7BankArr.splice(idx, 1);
+          q7TargetArr.push(obj);
+          renderQ7Chips();
+        };
+        bBox.appendChild(btn);
+      });
+    }
+
+    function gradeQ7() {
+      const codeSeq = q7TargetArr.map(o => o.code).join('-');
+      itemAnswers[7] = codeSeq || '-';
+      const ok = (codeSeq === 'A-B-C-D');
+      itemScores[7] = ok ? 10 : 0;
+      document.getElementById('pts-7').textContent = itemScores[7];
+
+      const fb = document.getElementById('fb-q7');
+      if (ok) {
+        fb.className = 'feedback-inline correct';
+        fb.innerHTML = `<strong>🎯 Struktur Paragraf Sempurna (+10 Poin)!</strong> Urutan <code>A - B - C - D</code> memulai paragraf dengan <em>Identification</em> (Kalimat A), lalu diikuti <em>Description</em> bentuk pulau (B), pondok kayu (C), dan nilai cinta lingkungan (D).`;
+      } else {
+        fb.className = 'feedback-inline wrong';
+        fb.innerHTML = `<strong>💡 Mari Urutkan Kembali:</strong> Paragraf deskriptif harus dimulai dari pengenalan umum (Kalimat A), lalu bentuk pulau dari atas (Kalimat B), rincian pondok kayu di atas air (Kalimat C), dan diakhiri penggunaan energi surya (Kalimat D).`;
+      }
+      updateLiveMatrix();
+    }
+
+    // SOAL 8: MATRIX TRUE / FALSE
+    function gradeQ8() {
+      const s1 = document.getElementById('q8-s1').value;
+      const s2 = document.getElementById('q8-s2').value;
+      const s3 = document.getElementById('q8-s3').value;
+
+      itemAnswers[8] = `${s1||'?'}|${s2||'?'}|${s3||'?'}`;
+      const ok = (s1 === 'T' && s2 === 'F' && s3 === 'T');
+      itemScores[8] = ok ? 10 : 0;
+      document.getElementById('pts-8').textContent = itemScores[8];
+
+      const fb = document.getElementById('fb-q8');
+      if (ok) {
+        fb.className = 'feedback-inline correct';
+        fb.innerHTML = `<strong>🎯 Analisis Matriks Tepat (+10 Poin)!</strong> Pernyataan 1 (TRUE), Pernyataan 2 (FALSE, karena Milo adalah kucing jinak berbulu oranye, bukan harimau bersayap), dan Pernyataan 3 (TRUE, rincian warna bulu termasuk bagian Description).`;
+      } else {
+        fb.className = 'feedback-inline wrong';
+        fb.innerHTML = `<strong>💡 Panduan Penalaran:</strong> Perhatikan poster Milo: Pernyataan 1 sesuai gambar (TRUE), Pernyataan 2 salah karena menyebut harimau bersayap (FALSE), dan Pernyataan 3 benar karena rincian bulu oranye adalah bagian Description (TRUE).`;
+      }
+      updateLiveMatrix();
+    }
+
+    // SOAL 9: MULTI-SELECT CHECKBOXES
+    function gradeQ9() {
+      const c1 = document.getElementById('q9-c1').checked;
+      const c2 = document.getElementById('q9-c2').checked;
+      const c3 = document.getElementById('q9-c3').checked;
+      const c4 = document.getElementById('q9-c4').checked;
+
+      let picked = [];
+      if (c1) picked.push('1');
+      if (c2) picked.push('2');
+      if (c3) picked.push('3');
+      if (c4) picked.push('4');
+      itemAnswers[9] = picked.join(',') || '-';
+
+      const ok = (c1 && !c2 && c3 && !c4);
+      itemScores[9] = ok ? 10 : 0;
+      document.getElementById('pts-9').textContent = itemScores[9];
+
+      const fb = document.getElementById('fb-q9');
+      if (ok) {
+        fb.className = 'feedback-inline correct';
+        fb.innerHTML = `<strong>🎯 Pengamatan Visual Akurat (+10 Poin)!</strong> Pernyataan 1 dan 3 sesuai dengan ilustrasi Mr. Bahrudin (memakai topi jerami kuning, kacamata kotak hitam, berkumis tipis, dan memegang jagung kuning).`;
+      } else {
+        fb.className = 'feedback-inline wrong';
+        fb.innerHTML = `<strong>💡 Panduan Penalaran:</strong> Hanya centang <strong>Pernyataan 1</strong> dan <strong>Pernyataan 3</strong> yang sesuai dengan gambar Mr. Bahrudin.`;
+      }
+      updateLiveMatrix();
+    }
+
+    // SOAL 10: HTML5 DRAWING CANVAS & DESCRIPTIVE TAGGING
+    let drawStrokeCount = 0;
+    let isDrawing = false;
+    let brushColor = '#f59e0b';
+    let canvasCtx = null;
+
+    function initDrawCanvas() {
+      const canvas = document.getElementById('hotsDrawCanvas');
+      if (!canvas) return;
+      canvasCtx = canvas.getContext('2d');
+      canvasCtx.lineCap = 'round';
+      canvasCtx.lineJoin = 'round';
+      canvasCtx.lineWidth = 4;
+
+      const getPos = (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        return { x: (clientX - rect.left) * scaleX, y: (clientY - rect.top) * scaleY };
+      };
+
+      const startDraw = (e) => {
+        e.preventDefault();
+        isDrawing = true;
+        const pos = getPos(e);
+        canvasCtx.beginPath();
+        canvasCtx.moveTo(pos.x, pos.y);
+      };
+
+      const moveDraw = (e) => {
+        if (!isDrawing) return;
+        e.preventDefault();
+        const pos = getPos(e);
+        canvasCtx.strokeStyle = brushColor;
+        canvasCtx.lineTo(pos.x, pos.y);
+        canvasCtx.stroke();
+      };
+
+      const endDraw = () => {
+        if (isDrawing) {
+          isDrawing = false;
+          drawStrokeCount++;
+          document.getElementById('strokeCountLabel').textContent = drawStrokeCount;
+        }
+      };
+
+      canvas.addEventListener('mousedown', startDraw);
+      canvas.addEventListener('mousemove', moveDraw);
+      window.addEventListener('mouseup', endDraw);
+
+      canvas.addEventListener('touchstart', startDraw, { passive: false });
+      canvas.addEventListener('touchmove', moveDraw, { passive: false });
+      window.addEventListener('touchend', endDraw);
+    }
+
+    function setBrushColor(hex, btnEl) {
+      brushColor = hex;
+      document.querySelectorAll('.color-dot-btn').forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
+    }
+
+    function clearDrawCanvas() {
+      const canvas = document.getElementById('hotsDrawCanvas');
+      if (canvasCtx && canvas) {
+        canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+        drawStrokeCount = 0;
+        document.getElementById('strokeCountLabel').textContent = '0';
+      }
+    }
+
+    function gradeQ10() {
+      const t1 = document.getElementById('q10-s1').value;
+      const t2 = document.getElementById('q10-s2').value;
+      const drawnEnough = drawStrokeCount >= 3;
+
+      itemAnswers[10] = `Strokes:${drawStrokeCount}|${t1||'?'}|${t2||'?'}`;
+      const ok = (drawnEnough && t1 === 'round' && t2 === 'prep');
+      itemScores[10] = ok ? 10 : 0;
+      document.getElementById('pts-10').textContent = itemScores[10];
+
+      const fb = document.getElementById('fb-q10');
+      if (ok) {
+        fb.className = 'feedback-inline correct';
+        fb.innerHTML = `<strong>🎨 Karya Visual & Analisis Bahasa Hebat (+10 Poin)!</strong> Kamu telah menggambar ilustrasi deskriptif pada kanvas (${drawStrokeCount} goresan) dan mengidentifikasi <code>round</code> sebagai Shape Adjective serta <code>above</code> sebagai Preposition of Place!`;
+      } else {
+        let msg = '';
+        if (!drawnEnough) msg += '• Buatlah minimal 3 goresan gambar (matahari, ombak laut, dan pohon) pada kanvas di atas.<br/>';
+        if (t1 !== 'round') msg += '• Kata sifat bentuk (Shape Adjective) dalam "a round golden sun" adalah <code>round</code>.<br/>';
+        if (t2 !== 'prep') msg += '• Kata "above" (di atas) berfungsi sebagai <code>Preposition of Place</code>.';
+        fb.className = 'feedback-inline wrong';
+        fb.innerHTML = `<strong>💡 Lengkapi Tantangan Nomor 10:</strong><br/>${msg}`;
+      }
+      updateLiveMatrix();
+    }
+
+    /* =========================================================================
+       6. REKAPITULASI SKOR, MATRIKS BUTIR SOAL & CLOUD SYNC SPREADSHEET
+       ========================================================================= */
+    function calculateSummary() {
+      let totalScore = 0;
+      let correctItems = 0;
+      for (let i = 1; i <= 10; i++) {
+        totalScore += itemScores[i];
+        if (itemScores[i] === 10) correctItems++;
+      }
+      const ketuntasan = totalScore >= 75 ? 'TUNTAS' : 'BELUM TUNTAS';
+      let predikat = 'D (Perlu Bimbingan)';
+      if (totalScore >= 90) predikat = 'A (Sangat Baik)';
+      else if (totalScore >= 80) predikat = 'B (Baik)';
+      else if (totalScore >= 75) predikat = 'C (Cukup)';
+
+      return { totalScore, correctItems, ketuntasan, predikat };
+    }
+
+    function updateLiveMatrix() {
+      const stats = calculateSummary();
+      const row = document.getElementById('liveMatrixRow');
+      let cellsHtml = '';
+      for (let i = 1; i <= 10; i++) {
+        const bg = itemScores[i] === 10 ? '#dcfce7' : '#fee2e2';
+        cellsHtml += `<td style="background:${bg}; font-weight:700;">${itemScores[i]}</td>`;
+      }
+      cellsHtml += `<td style="background:var(--gold-light); font-weight:900;">${stats.totalScore}</td>`;
+      row.innerHTML = cellsHtml;
+
+      document.getElementById('quizScoreSummary').innerHTML = `
+        Soal Benar: <strong>${stats.correctItems}/10</strong> •
+        Nilai Akhir: <span style="font-size:1.35rem; color:var(--tosca-dark);">${stats.totalScore}/100</span> •
+        Status: <strong>${stats.ketuntasan}</strong> (${stats.predikat}) •
+        Bintang Salon: <strong>${salonStars} ⭐</strong>
+      `;
+    }
+
+    function resetAllHotsQuiz() {
+      for (let i = 1; i <= 10; i++) {
+        itemScores[i] = 0;
+        itemAnswers[i] = '-';
+        document.getElementById(`pts-${i}`).textContent = '0';
+        const fb = document.getElementById(`fb-q${i}`);
+        if (fb) { fb.className = 'feedback-inline'; fb.innerHTML = ''; }
+      }
+      document.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected-correct', 'selected-wrong'));
+      document.querySelectorAll('.match-select').forEach(s => s.value = '');
+      document.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = false);
+      initQ6();
+      initQ7();
+      clearDrawCanvas();
+      updateLiveMatrix();
+      document.getElementById('saveStatusMsg').textContent = '🔄 Evaluasi telah direset.';
+    }
+
+    function buildFullPayload() {
+      const name = document.getElementById('studentName').value.trim() || 'Murid MTs';
+      const cls = document.getElementById('studentClass').value.trim() || 'VII-A MTs Boalemo';
+      const team = document.getElementById('studentTeam').value;
+      const stats = calculateSummary();
+      const timestamp = new Date().toLocaleString('id-ID');
+
+      return {
+        timestamp,
+        appName: 'Desriptive Text Moduline',
+        name,
+        className: cls,
+        team,
+        salonStars,
+        totalScore: stats.totalScore,
+        correctItems: stats.correctItems,
+        predikat: stats.predikat,
+        ketuntasan: stats.ketuntasan,
+        S1: itemScores[1], S2: itemScores[2], S3: itemScores[3], S4: itemScores[4], S5: itemScores[5],
+        S6: itemScores[6], S7: itemScores[7], S8: itemScores[8], S9: itemScores[9], S10: itemScores[10],
+        J1: itemAnswers[1], J2: itemAnswers[2], J3: itemAnswers[3], J4: itemAnswers[4], J5: itemAnswers[5],
+        J6: itemAnswers[6], J7: itemAnswers[7], J8: itemAnswers[8], J9: itemAnswers[9], J10: itemAnswers[10]
+      };
+    }
+
+    function saveWebhookUrl() {
+      const urlInput = document.getElementById('gasWebhookUrl').value.trim();
+      if (urlInput) {
+        try { localStorage.setItem('moduline_gas_url', urlInput); } catch (e) {}
+        document.getElementById('saveStatusMsg').textContent = '✅ URL Google Spreadsheet berhasil disimpan di perangkat ini.';
+      }
+    }
+
+    async function sendToSpreadsheet() {
+      const payload = buildFullPayload();
+      const savedUrl = localStorage.getItem('moduline_gas_url') || '';
+      const targetUrl = document.getElementById('gasWebhookUrl').value.trim() || savedUrl || DEFAULT_GAS_URL;
+      const statusEl = document.getElementById('saveStatusMsg');
+
+      if (!targetUrl) {
+        statusEl.textContent = '⚠️ URL Web App Spreadsheet belum diisi! Buka menu "Pengaturan Koneksi Google Spreadsheet Guru" di atas soal nomor 1 untuk menempelkan URL Web App Anda.';
+        return;
+      }
+
+      statusEl.textContent = '⏳ Sedang mengirim data nilai dan analisis 10 butir soal ke Google Spreadsheet...';
+
+      try {
+        await fetch(targetUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        });
+        saveResultOffline();
+        statusEl.textContent = `✅ BERHASIL TERKIRIM KE SPREADSHEET! Data analisis soal (S1–S10 & J1–J10) atas nama ${payload.name} (Skor: ${payload.totalScore}) telah direkam ke Cloud.`;
+      } catch (err) {
+        statusEl.textContent = '⚠️ Gagal terhubung ke internet. Data otomatis disimpan di memori perangkat (Offline).';
+        saveResultOffline();
+      }
+    }
+
+    function saveResultOffline() {
+      const rec = buildFullPayload();
+      try {
+        const list = JSON.parse(localStorage.getItem('moduline_records') || '[]');
+        list.push(rec);
+        localStorage.setItem('moduline_records', JSON.stringify(list));
+        document.getElementById('saveStatusMsg').textContent =
+          `💾 Data analisis 10 soal ${rec.name} (Skor: ${rec.totalScore}) tersimpan di memori perangkat (${list.length} total rekaman).`;
+      } catch (e) {}
+    }
+
+    function exportResultCSV() {
+      const rec = buildFullPayload();
+      let list = [];
+      try { list = JSON.parse(localStorage.getItem('moduline_records') || '[]'); } catch (e) {}
+      if (list.length === 0) list.push(rec);
+
+      let csv = 'Waktu,Nama Murid,Kelas,Kelompok,Bintang Salon,Skor Total,Predikat,Ketuntasan,S1,S2,S3,S4,S5,S6,S7,S8,S9,S10,Jawab_1,Jawab_2,Jawab_3,Jawab_4,Jawab_5,Jawab_6,Jawab_7,Jawab_8,Jawab_9,Jawab_10\n';
+      list.forEach(r => {
+        csv += `"${r.timestamp}","${r.name}","${r.className}","${r.team}",${r.salonStars},${r.totalScore},"${r.predikat}","${r.ketuntasan}",${r.S1},${r.S2},${r.S3},${r.S4},${r.S5},${r.S6},${r.S7},${r.S8},${r.S9},${r.S10},"${r.J1}","${r.J2}","${r.J3}","${r.J4}","${r.J5}","${r.J6}","${r.J7}","${r.J8}","${r.J9}","${r.J10}"\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Analisis_Soal_Desriptive_Text_Moduline_${rec.name.replace(/\s+/g, '_')}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    function sendWhatsAppSummary() {
+      const r = buildFullPayload();
+      const msg = encodeURIComponent(
+        `*LAPORAN ANALISIS SOAL - DESRIPTIVE TEXT MODULINE*\n` +
+        `• Nama: ${r.name} (${r.className})\n` +
+        `• Kelompok: ${r.team} | Bintang Salon: ${r.salonStars}⭐\n` +
+        `• Skor Total: *${r.totalScore}/100* (${r.ketuntasan})\n` +
+        `• Rincian S1-S10: [${r.S1}, ${r.S2}, ${r.S3}, ${r.S4}, ${r.S5}, ${r.S6}, ${r.S7}, ${r.S8}, ${r.S9}, ${r.S10}]\n` +
+        `• Pengembang: Syahril Nur, S.Pd., M.Pd., Gr.`
+      );
+      window.open(`https://wa.me/?text=${msg}`, '_blank');
+    }
+
+    // INISIALISASI SAAT HALAMAN DIMUAT
+    window.addEventListener('DOMContentLoaded', () => {
+      try {
+        const savedTeams = localStorage.getItem('moduline_teams');
+        if (savedTeams) {
+          teamScores = JSON.parse(savedTeams);
+          teamScores.forEach((sc, idx) => { document.getElementById('score-' + idx).textContent = sc; });
+        }
+        const savedGas = localStorage.getItem('moduline_gas_url');
+        if (savedGas) document.getElementById('gasWebhookUrl').value = savedGas;
+      } catch (e) {}
+
+      showCategoryMaterial('people');
+      filterVocab('all');
+      loadSalonClient(0);
+      updateSimulator();
+      buildStudentParagraph();
+      initQ6();
+      initQ7();
+      initDrawCanvas();
+      updateLiveMatrix();
+    });
+  </script>
+</body>
+</html>
